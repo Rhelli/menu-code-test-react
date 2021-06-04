@@ -12,7 +12,7 @@ const cleanWebpackPlugin = new CleanWebpackPlugin();
 
 module.exports = {
   entry: {
-    app: './src/App.js'
+    app: './src/Index.js'
   },
   module: {
     rules: [
