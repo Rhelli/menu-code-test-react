@@ -1,4 +1,4 @@
-const initialStateGen = (menuData) => {
+const initialStateGen = (menuData, stockCount, lowStockItem) => {
   const initialState = {
     starters: {},
     mains: {},
@@ -6,21 +6,21 @@ const initialStateGen = (menuData) => {
   };
 
   menuData.starters.map((start) => {
-    initialState.starers[start.name] = 30;
+    initialState.starers[start.name] = stockCount;
     return true;
   });
 
   menuData.mains.map((main) => {
-    initialState.mains[main.name] = 30;
+    initialState.mains[main.name] = stockCount;
     return true;
   });
 
   menuData.desserts.map((dessert) => {
-    if (dessert.name === 'Cheesecake') {
+    if (dessert.name === lowStockItem) {
       initialState.desserts[dessert.name] = 1;
       return true;
     }
-    initialState.desserts[dessert.name] = 30;
+    initialState.desserts[dessert.name] = stockCount;
     return true;
   });
 

@@ -3,7 +3,9 @@ import initialStockGen from '../../utils/menuUtils';
 
 const menuData = require('../../../menu-data.json');
 
-const initialState = initialStockGen(menuData);
+// Util func to create the initial state object dynamically from the menu data/
+// Param1 = menu Data, Param2 = stock count, Param 3 = Low stock item
+const initialState = initialStockGen(menuData, 30, 'Cheesecake');
 
 const stockReducer = (state = initialState, action) => {
   switch (action.type) {
