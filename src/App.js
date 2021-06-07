@@ -10,7 +10,9 @@ const store = setupStore();
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Routes />
+      <div className="appContainer">
+        <Routes />
+      </div>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

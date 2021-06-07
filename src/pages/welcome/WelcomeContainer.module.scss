@@ -1,0 +1,19 @@
+.welcomeContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 80%;
+  height: 50%;
+  border: 2px solid #707070;
+  padding: 20px;
+  border-radius: 3px;
+
+  h1 {
+    width: 100%;
+    text-align: left;
+    font-size: 48px;
+    color: #404040;
+    padding: 20px;
+    border-bottom: 1px solid #909090;
+  }
+}

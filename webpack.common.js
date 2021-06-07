@@ -12,18 +12,18 @@ const cleanWebpackPlugin = new CleanWebpackPlugin();
 
 module.exports = {
   entry: {
-    app: './src/Index.js'
+    app: './src/App.js'
   },
   module: {
     rules: [
       {
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env', '@babel/preset-react'].map(require.resolve)
+              presets: ['@babel/preset-env', '@babel/preset-react']
             }
           }
         ]
