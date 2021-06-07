@@ -1,32 +1,29 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import DatePicker from 'react-date-picker';
 import times from '../../../../utils/welcomeUtils';
 
 import styles from './WelcomeFormComponent.module.scss';
 
-const WelcomeFormComponent = () => {
+const WelcomeFormComponent = ({ submitNewBooking }) => {
+  const [partySize, changePartySize] = useState(2);
   const [date, changeDate] = useState(new Date());
-  const [description, setDescription] = useState(false);
+  const [time, changeTime] = useState('12:00');
 
-  const handleDescriptionClick = () => {
-    if (description === false) {
-      setDescription(true);
-    }
-    if (description === true) {
-      setDescription(false);
-    }
-    return description;
-  };
+  console.log(partySize, date, time);
 
   return (
     <div className={styles.welcomeFormComponent}>
       <h3>Make a booking</h3>
-      <form className={styles.welcomeForm}>
-        <div className={styles.partySize}>
+      <form onSubmit={(event) => submitNewBooking(event, partySize, date, time)} className={styles.welcomeForm}>
+        <div
+          onChange={(event) => changePartySize(event.target.value)}
+          className={styles.partySize}
+        >
           <p>Party Size</p>
-          <select>
-            <option value="2">For two</option>
+          <select id="partySize" name="partySize">
+            <option value="2">For 2</option>
           </select>
         </div>
         <div className={styles.timeDate}>
@@ -41,9 +38,9 @@ const WelcomeFormComponent = () => {
               required={true}
             />
           </div>
-          <div>
+          <div onChange={(event) => changeTime(event.target.value)}>
             <p>Time</p>
-            <select id="time" name="time" size="1">
+            <select id="time" name="time">
               {
                 times.map((time) => (
                   <option key={uuidv4()} value={time}>
@@ -54,18 +51,16 @@ const WelcomeFormComponent = () => {
             </select>
           </div>
         </div>
-        <button className={styles.formSubmitButton}>
+        <button type="submit" className={styles.formSubmitButton}>
           <p>Find A Table</p>
         </button>
       </form>
-      <div className={description ? styles.descriptionFull : styles.description}>
-        <p>The Chez Paree is the quintessential French dining experience, in the center of London&apos;s busy Soho.
-        With a well earned Michelin star behind Jean-Luc Picard&apos;s Parisian gem, the <i>Chez Paree</i> is been
-        critically acclaimed by numerous high-flyer critiques and restaurant-goers alike.</p>
-        <button onClick={handleDescriptionClick}>+ Read More</button>
-      </div>
     </div>
   );
+};
+
+WelcomeFormComponent.propTypes = {
+  submitNewBooking: PropTypes.func.isRequired
 };
 
 export default WelcomeFormComponent;

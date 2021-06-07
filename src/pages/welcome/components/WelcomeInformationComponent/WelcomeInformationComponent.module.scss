@@ -1,13 +1,14 @@
 .welcomeInformationContainer {
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
   height: 80px;
   width: 100%;
 
   .topInformationBar,
   .welcomeInformationTagsBar {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
@@ -40,18 +41,23 @@
 
   .welcomeInformationTagsBar {
     p {
-      margin-right: 14px;
+      margin-right: 12px;
+    }
+
+    .tagTitle {
+      font-size: 18px;
     }
 
     div {
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: row wrap;
       align-items: center;
       
       p {
         border: 1px solid #d8d9db;
         padding: 6px 12px;
         border-radius: 25px;
+        font-size: 14px;
 
         &:hover {
           border: 2px solid #da3743;

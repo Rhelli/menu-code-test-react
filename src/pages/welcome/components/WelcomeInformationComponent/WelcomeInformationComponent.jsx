@@ -37,7 +37,7 @@ const WelcomeInformationComponent = () => (
       </div>
     </div>
     <div className={styles.welcomeInformationTagsBar}>
-      <p>Top tags:</p>
+      <p className={styles.tagTitle}>Top tags:</p>
       <div>
         <p>Special Occasions</p>
         <p>Neighborhood Gem</p>
