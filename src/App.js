@@ -1,8 +1,17 @@
 import React from 'react';
-import styles from './App.module.scss';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import Routes from './routes';
+import setupStore from './state/store';
+import './App.scss';
 
-const App = () => (
-  <h1 className={styles.menuTest}>Test Menu</h1>
+const store = setupStore();
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <Routes />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
-
-export default App;
