@@ -15,9 +15,9 @@ const orderReducer = (state = initialState, action) => {
       orders: {
         ...state.orders,
         [action.payload]: {
-          starter: '',
-          main: '',
-          dessert: ''
+          starters: '',
+          mains: '',
+          desserts: ''
         }
       }
     };
@@ -27,9 +27,9 @@ const orderReducer = (state = initialState, action) => {
       orders: {
         ...state.orders,
         shared: {
-          starter: '',
-          main: '',
-          dessert: ''
+          starters: '',
+          mains: '',
+          desserts: ''
         }
       }
     };

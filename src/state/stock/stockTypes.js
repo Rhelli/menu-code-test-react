@@ -1,0 +1,3 @@
+export const DECREASE_STOCK = 'DECREASE_STOCK';
+export const INCREASE_STOCK = 'INCREASE_STOCK';
+export const RESET_STOCK = 'RESET_STOCK';
