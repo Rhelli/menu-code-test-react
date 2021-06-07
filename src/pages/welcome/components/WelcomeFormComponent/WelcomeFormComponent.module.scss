@@ -28,16 +28,15 @@
         font-size: 14px;
       }
 
-      .datePicker {
+      .datePicker,
+      .timePicker {
         width: 100%;
         height: 30px;
         outline: none;
-        border: none;
         border-bottom: 1px solid #d8d9db;
 
         div {
           width: 100%;
-          border: 2px;
           
           button {
             &:hover,
@@ -55,12 +54,23 @@
         }
       }
 
+      .datePicker {
+        div {
+          border: none;
+        }
+      }
+
       .datePickerCalendar {
         background-color: #F9EBEA;
         border-radius: 4px;
       }
 
+      .timePickerClock {
+        width: 100%;
+      }
+
       select {
+        font-family: inherit;
         width: 100%;
         height: 30px;
         outline: none;

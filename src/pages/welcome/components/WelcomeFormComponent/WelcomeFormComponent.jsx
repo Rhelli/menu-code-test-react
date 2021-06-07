@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import DatePicker from 'react-date-picker';
+import times from '../../../../utils/welcomeUtils';
+
 import styles from './WelcomeFormComponent.module.scss';
 
 const WelcomeFormComponent = () => {
@@ -40,7 +43,15 @@ const WelcomeFormComponent = () => {
           </div>
           <div>
             <p>Time</p>
-            <select />
+            <select id="time" name="time" size="1">
+              {
+                times.map((time) => (
+                  <option key={uuidv4()} value={time}>
+                    {time}
+                  </option>
+                ))
+              }
+            </select>
           </div>
         </div>
         <button className={styles.formSubmitButton}>
