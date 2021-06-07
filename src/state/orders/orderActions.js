@@ -1,7 +1,14 @@
 import {
-  CREATE_NEW_ORDER, CREATE_NEW_SHARED_ORDER, ADD_TO_ORDER, ADD_TO_SHARED_ORDER,
-  REMOVE_FROM_ORDER, REMOVE_FROM_SHARED_ORDER, RESET_ORDER
+  CREATE_NEW_BOOKING, CREATE_NEW_ORDER, CREATE_NEW_SHARED_ORDER, ADD_TO_ORDER,
+  ADD_TO_SHARED_ORDER, REMOVE_FROM_ORDER, REMOVE_FROM_SHARED_ORDER, RESET_ORDER
 } from './orderTypes';
+
+export const createNewBooking = (partySize, date, time) => ({
+  type: CREATE_NEW_BOOKING,
+  partySize,
+  date,
+  time
+});
 
 export const createNewOrder = (name) => ({
   type: CREATE_NEW_ORDER,

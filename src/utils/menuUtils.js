@@ -6,7 +6,7 @@ const initialStateGen = (menuData, stockCount, lowStockItem) => {
   };
 
   menuData.starters.map((start) => {
-    initialState.starers[start.name] = stockCount;
+    initialState.starters[start.name] = stockCount;
     return true;
   });
 
