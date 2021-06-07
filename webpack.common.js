@@ -1,13 +1,19 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const htmlPlugin = new HtmlWebPackPlugin({
+  title: 'Production',
   template: './public/index.html',
   filename: './index.html'
 });
 
+const cleanWebpackPlugin = new CleanWebpackPlugin();
+
 module.exports = {
-  entry: ['./src/App.js'],
+  entry: {
+    app: './src/Index.js'
+  },
   module: {
     rules: [
       {
@@ -48,5 +54,5 @@ module.exports = {
     path: path.join(__dirname, '/public/webpack/'),
     filename: 'bundle.js'
   },
-  plugins: [htmlPlugin]
+  plugins: [htmlPlugin, cleanWebpackPlugin]
 };
