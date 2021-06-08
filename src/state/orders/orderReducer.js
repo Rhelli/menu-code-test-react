@@ -9,7 +9,30 @@ const initialState = {
     time: '',
     date: ''
   },
-  orders: {},
+  orders: {
+    Sam: {
+      starters: {
+        food: 'Soup',
+        price: '3'
+      },
+      mains: {
+        food: 'Meatballs',
+        price: '18'
+      }
+    },
+    Tim: {
+      starters: {
+        food: 'Prawn Cocktail',
+        price: '4'
+      }
+    },
+    Sharing: {
+      mains: {
+        food: 'Meatballs',
+        price: '18'
+      }
+    }
+  },
   customerCount: 0
 };
 
@@ -30,9 +53,9 @@ const orderReducer = (state = initialState, action) => {
         ...state.orders,
         [action.name]: {
           color: action.color,
-          starters: '',
-          mains: '',
-          desserts: ''
+          starters: {},
+          mains: {},
+          desserts: {}
         }
       }
     };
@@ -43,9 +66,9 @@ const orderReducer = (state = initialState, action) => {
         ...state.orders,
         Sharing: {
           color: action.color,
-          starters: '',
-          mains: '',
-          desserts: ''
+          starters: {},
+          mains: {},
+          desserts: {}
         }
       }
     };
@@ -56,7 +79,10 @@ const orderReducer = (state = initialState, action) => {
         ...state.orders,
         [action.customer]: {
           ...state.orders[action.customer],
-          [action.course]: action.food
+          [action.course]: {
+            food: action.food,
+            price: action.price
+          }
         }
       }
     };
@@ -67,7 +93,10 @@ const orderReducer = (state = initialState, action) => {
         ...state.orders,
         Sharing: {
           ...state.orders.shared,
-          [action.course]: action.food
+          [action.course]: {
+            food: action.food,
+            price: action.price
+          }
         }
       }
     };
@@ -78,7 +107,7 @@ const orderReducer = (state = initialState, action) => {
         ...state.orders,
         [action.customer]: {
           ...state[action.customer],
-          [action.course]: ''
+          [action.course]: {}
         }
       }
     };
@@ -88,7 +117,7 @@ const orderReducer = (state = initialState, action) => {
       orders: {
         ...state.orders,
         Sharing: {
-          [action.course]: ''
+          [action.course]: {}
         }
       }
     };

@@ -86,3 +86,17 @@ export const randomColorGen = (number) => {
   }
   return color;
 };
+
+export const orderExtractor = (orderObject) => {
+  if (orderObject) {
+    let names = Object.keys(orderObject);
+    let arr = [];
+    names.map((name) => {
+      arr.push(Object.values(orders[name]));
+    });
+
+    arr.forEach((item) => {
+      item.forEach(subItem => [subItem.food, subItem.price]);
+    });
+  }
+};

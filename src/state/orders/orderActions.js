@@ -21,16 +21,18 @@ export const createNewSharedOrder = (color) => ({
   color
 });
 
-export const addToOrder = (food, course, customer = null) => ({
+export const addToOrder = (food, price, course, customer = null) => ({
   type: ADD_TO_ORDER,
   food,
+  price,
   course,
   customer
 });
 
-export const addToSharedOrder = (food, course) => ({
+export const addToSharedOrder = (food, price, course) => ({
   type: ADD_TO_SHARED_ORDER,
   food,
+  price,
   course
 });
 

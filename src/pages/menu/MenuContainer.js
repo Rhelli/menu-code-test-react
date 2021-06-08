@@ -12,11 +12,11 @@ const MenuContainer = ({ orderStore, addToOrder, addToSharedOrder }) => {
   const names = Object.keys(orders);
   const [currentGuest, setCurrentGuest] = useState(names[0]);
 
-  const submitOrderAddition = (food, course) => {
+  const submitOrderAddition = (food, price, course) => {
     if (currentGuest === 'Sharing') {
-      addToSharedOrder(food, course);
+      addToSharedOrder(food, price, course);
     } else {
-      addToOrder(food, course, currentGuest);
+      addToOrder(food, price, course, currentGuest);
     }
     return true;
   };
@@ -34,7 +34,7 @@ const MenuContainer = ({ orderStore, addToOrder, addToSharedOrder }) => {
           submitOrderAddition={submitOrderAddition}
         />
       </div>
-      <OrderCardComponent />
+      <OrderCardComponent orders={orders} />
     </main>
   );
 };
