@@ -30,7 +30,7 @@ export const menuGen = (menuData, stockCount, lowStockItem) => {
 export const priceFormatter = (price) => {
   let newPrice = 0;
   newPrice = price.toFixed(2);
-  return newPrice;
+  return `£${newPrice}`;
 };
 
 const randomColorClass = (number) => {
@@ -87,16 +87,13 @@ export const randomColorGen = (number) => {
   return color;
 };
 
-export const orderExtractor = (orderObject) => {
-  if (orderObject) {
-    let names = Object.keys(orderObject);
-    let arr = [];
-    names.map((name) => {
-      arr.push(Object.values(orders[name]));
-    });
-
-    arr.forEach((item) => {
-      item.forEach(subItem => [subItem.food, subItem.price]);
+export const extractSubTotal = (orders, name) => {
+  let subTotal = 0;
+  if (orders) {
+    Object.values(orders[name]).map((item) => {
+      subTotal += parseInt(10, item.price);
+      return true;
     });
   }
+  return `£${subTotal.toFixed(2)}`;
 };

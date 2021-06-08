@@ -2,7 +2,58 @@
   display: flex;
   flex-flow: column nowrap;
   width: 38%;
-  height: 300px;
+  height: auto;
+  max-height: 50%;
   border: 2px solid #707070;
+  border-radius: 3px;
   margin-left: auto;
+
+  h3 {
+    height: 12%;
+    padding: 10px;
+    border-bottom: 1px solid #d8d9db;
+  }
+
+  .orderList {
+    height: 88%;
+    padding: 0 10px;
+    overflow-y: auto;
+
+    .individualList {
+      padding: 10px 0;
+      border-bottom: 1px solid #d8d9db;
+
+      div {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        padding: 5px 0;
+
+        .price {
+          margin-left: auto;
+        }
+
+        button {
+          outline: none;
+          border: none;
+          background: transparent;
+          margin-left: 10px;
+
+          svg {
+            font-size: 18px;
+            position: relative;
+            top: 1px;
+            transition-duration: 0.1s;
+          }
+
+          &:hover {
+            svg {
+              color: #da3743;
+              transition-duration: 0.1s;
+            }
+          }
+        }
+      }
+    }
+  }
 }

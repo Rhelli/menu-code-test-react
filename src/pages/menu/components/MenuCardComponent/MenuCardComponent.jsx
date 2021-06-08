@@ -21,13 +21,8 @@ const MenuCardComponent = ({ submitOrderAddition }) => {
                 key={uuidv4()}
                 onClick={() => submitOrderAddition(start.name, start.price, 'starters')}
               >
-                <p className={styles.starterName}>
-                  {start.name}
-                </p>
-                <p className={styles.dessertPrice}>
-                  £
-                  {priceFormatter(start.price)}
-                </p>
+                <p className={styles.starterName}>{start.name}</p>
+                <p className={styles.dessertPrice}>{priceFormatter(start.price)}</p>
               </div>
             ))
           }
@@ -46,10 +41,7 @@ const MenuCardComponent = ({ submitOrderAddition }) => {
                 <p className={styles.mainName}>
                   {main.name}
                 </p>
-                <p className={styles.dessertPrice}>
-                  £
-                  {priceFormatter(main.price)}
-                </p>
+                <p className={styles.dessertPrice}>{priceFormatter(main.price)}</p>
               </div>
             ))
           }
@@ -65,13 +57,8 @@ const MenuCardComponent = ({ submitOrderAddition }) => {
                 key={uuidv4()}
                 onClick={() => submitOrderAddition(dessert.name, dessert.price, 'desserts')}
               >
-                <p className={styles.dessertName}>
-                  {dessert.name}
-                </p>
-                <p className={styles.dessertPrice}>
-                  £
-                  {priceFormatter(dessert.price)}
-                </p>
+                <p className={styles.dessertName}>{dessert.name}</p>
+                <p className={styles.dessertPrice}>{priceFormatter(dessert.price)}</p>
               </div>
             ))
           }
