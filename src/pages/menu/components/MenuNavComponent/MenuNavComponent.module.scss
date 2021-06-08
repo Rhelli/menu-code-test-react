@@ -21,6 +21,7 @@
       margin-left: 5px;
       border-radius: 3px;
       transition: 0.1s;
+      opacity: 0.5;
 
       &:hover {
         opacity: 0.75;
@@ -29,7 +30,7 @@
 
       &:active,
       &:focus {
-        opacity: 0.8;
+        opacity: 1;
       }
     }
 

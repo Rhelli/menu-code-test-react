@@ -10,9 +10,10 @@ export const createNewBooking = (partySize, date, time) => ({
   time
 });
 
-export const createNewOrder = (name) => ({
+export const createNewOrder = (name, color) => ({
   type: CREATE_NEW_ORDER,
-  payload: name
+  name,
+  color
 });
 
 export const createNewSharedOrder = () => ({

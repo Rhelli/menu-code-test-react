@@ -7,6 +7,7 @@ import WelcomeFormComponent from './components/WelcomeFormComponent/WelcomeFormC
 import WelcomeDescriptionComponent from './components/WelcomeDescriptionComponent/WelcomeDescriptionComponent.jsx';
 import WelcomeNameEntryComponent from './components/WelcomeNameEntryComponent/WelcomeNameEntryComponent.jsx';
 import { createNewBooking, createNewOrder } from '../../state/orders/orderActions';
+import { randomColorGen } from '../../utils/menuUtils';
 import styles from './WelcomeContainer.module.scss';
 
 const WelcomeContainer = ({ createNewBooking, createNewOrder }) => {
@@ -22,8 +23,8 @@ const WelcomeContainer = ({ createNewBooking, createNewOrder }) => {
 
   const submitNewOrders = (event, guest1, guest2) => {
     event.preventDefault();
-    createNewOrder(guest1);
-    createNewOrder(guest2);
+    createNewOrder(guest1, randomColorGen());
+    createNewOrder(guest2, randomColorGen());
     history.push('/menu');
   };
 

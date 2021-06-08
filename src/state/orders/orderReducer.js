@@ -10,8 +10,16 @@ const initialState = {
     date: ''
   },
   orders: {
-    James: {},
-    Samantha: {}
+    James: {
+      color: {
+        backgroundColor: '#3A90D6'
+      }
+    },
+    Samantha: {
+      color: {
+        backgroundColor: '#FB8C00'
+      }
+    }
   },
   customerCount: 0
 };
@@ -31,7 +39,8 @@ const orderReducer = (state = initialState, action) => {
       ...state,
       orders: {
         ...state.orders,
-        [action.payload]: {
+        [action.name]: {
+          color: action.color,
           starters: '',
           mains: '',
           desserts: ''

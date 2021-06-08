@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import MenuNavComponent from './components/MenuNavComponent/MenuNavComponent.jsx';
@@ -8,11 +8,14 @@ import styles from './MenuContainer.module.scss';
 
 const MenuContainer = ({ orderStore }) => {
   const { orders } = orderStore;
+  const [orderStatus, setOrderStatus] = useState(null);
+
+  console.log(orderStatus);
 
   return (
     <main className={styles.menuContainer}>
       <div className={styles.menuCardSection}>
-        <MenuNavComponent orders={orders} />
+        <MenuNavComponent orders={orders} setOrderStatus={setOrderStatus} />
         <MenuCardComponent />
       </div>
       <OrderCardComponent />

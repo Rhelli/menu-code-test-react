@@ -1,9 +1,8 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { randomColorGen } from '../../../../utils/menuUtils';
 import styles from './MenuNavComponent.module.scss';
 
-const MenuNavComponent = ({ orders }) => {
+const MenuNavComponent = ({ orders, setOrderStatus }) => {
   const names = Object.keys(orders);
 
   return (
@@ -13,14 +12,19 @@ const MenuNavComponent = ({ orders }) => {
       </div>
       <div className={styles.menuNavButtons}>
         {
-          names.map((name) => (
-            <button style={randomColorGen()} key={uuidv4()}>
+          names.map((name, i) => (
+            <button
+              onClick={() => setOrderStatus(name)}
+              id={i}
+              style={orders[name].color}
+              key={uuidv4()}
+            >
               {name}
             </button>
           ))
         }
-        <button className={styles.sharedButton}>
-          Shared
+        <button onClick={() => setOrderStatus('Sharing')} className={styles.sharedButton}>
+          Sharing
         </button>
       </div>
     </header>
