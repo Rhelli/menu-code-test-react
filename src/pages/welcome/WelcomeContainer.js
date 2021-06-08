@@ -6,11 +6,11 @@ import WelcomeInformationComponent from './components/WelcomeInformationComponen
 import WelcomeFormComponent from './components/WelcomeFormComponent/WelcomeFormComponent.jsx';
 import WelcomeDescriptionComponent from './components/WelcomeDescriptionComponent/WelcomeDescriptionComponent.jsx';
 import WelcomeNameEntryComponent from './components/WelcomeNameEntryComponent/WelcomeNameEntryComponent.jsx';
-import { createNewBooking, createNewOrder } from '../../state/orders/orderActions';
+import { createNewBooking, createNewOrder, createNewSharedOrder } from '../../state/orders/orderActions';
 import { randomColorGen } from '../../utils/menuUtils';
 import styles from './WelcomeContainer.module.scss';
 
-const WelcomeContainer = ({ createNewBooking, createNewOrder }) => {
+const WelcomeContainer = ({ createNewBooking, createNewOrder, createNewSharedOrder }) => {
   const history = useHistory();
   const [pageTurn, setPageTurn] = useState(false);
 
@@ -23,8 +23,13 @@ const WelcomeContainer = ({ createNewBooking, createNewOrder }) => {
 
   const submitNewOrders = (event, guest1, guest2) => {
     event.preventDefault();
-    createNewOrder(guest1, randomColorGen());
-    createNewOrder(guest2, randomColorGen());
+    if (guest1 && guest2) {
+      createNewOrder(guest1, randomColorGen());
+      createNewOrder(guest2, randomColorGen());
+      createNewSharedOrder(randomColorGen('11'));
+    } else {
+      createNewSharedOrder(randomColorGen('11'));
+    }
     history.push('/menu');
   };
 
@@ -51,7 +56,8 @@ WelcomeContainer.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   createNewBooking: (partySize, date, time) => dispatch(createNewBooking(partySize, date, time)),
-  createNewOrder: (name) => dispatch(createNewOrder(name))
+  createNewOrder: (name, color) => dispatch(createNewOrder(name, color)),
+  createNewSharedOrder: (color) => dispatch(createNewSharedOrder(color))
 });
 
 export default connect(null, mapDispatchToProps)(WelcomeContainer);

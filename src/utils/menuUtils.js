@@ -72,12 +72,17 @@ const randomColorClass = (number) => {
     };
 
     default: return {
-      backgroundColor: '#fefefe'
+      backgroundColor: '#37DACE'
     };
   }
 };
 
-export const randomColorGen = () => {
-  const color = randomColorClass((Math.random() * 10).toFixed(0));
+export const randomColorGen = (number) => {
+  let color;
+  if (number) {
+    color = randomColorClass(number);
+  } else {
+    color = randomColorClass((Math.random() * 8).toFixed(0));
+  }
   return color;
 };

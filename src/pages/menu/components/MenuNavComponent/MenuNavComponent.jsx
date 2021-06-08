@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './MenuNavComponent.module.scss';
 
-const MenuNavComponent = ({ orders, setOrderStatus, orderStatus }) => {
+const MenuNavComponent = ({ orders, setCurrentGuest, currentGuest }) => {
   const names = Object.keys(orders);
 
   return (
@@ -14,22 +15,29 @@ const MenuNavComponent = ({ orders, setOrderStatus, orderStatus }) => {
         {
           names.map((name, i) => (
             <button
-              onClick={() => setOrderStatus(name)}
+              onClick={() => setCurrentGuest(name)}
               id={i}
               style={orders[name].color}
-              className={orderStatus === name ? styles.selected : styles.unselected}
+              className={currentGuest === name ? styles.selected : styles.unselected}
               key={uuidv4()}
             >
               {name}
             </button>
           ))
         }
-        <button onClick={() => setOrderStatus('Sharing')} className={styles.sharedButton}>
-          Sharing
-        </button>
       </div>
     </header>
   );
+};
+
+MenuNavComponent.propTypes = {
+  orders: PropTypes.shape({
+    booking: PropTypes.object,
+    orders: PropTypes.object,
+    customerCount: PropTypes.number
+  }).isRequired,
+  setCurrentGuest: PropTypes.func.isRequired,
+  currentGuest: PropTypes.string.isRequired
 };
 
 export default MenuNavComponent;

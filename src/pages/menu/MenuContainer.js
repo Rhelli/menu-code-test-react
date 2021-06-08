@@ -1,27 +1,38 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import MenuNavComponent from './components/MenuNavComponent/MenuNavComponent.jsx';
 import MenuCardComponent from './components/MenuCardComponent/MenuCardComponent.jsx';
 import OrderCardComponent from './components/OrderCardComponent/OrderCardComponent.jsx';
+import { addToOrder, addToSharedOrder } from '../../state/orders/orderActions';
 import styles from './MenuContainer.module.scss';
 
-const MenuContainer = ({ orderStore }) => {
+const MenuContainer = ({ orderStore, addToOrder, addToSharedOrder }) => {
   const { orders } = orderStore;
   const names = Object.keys(orders);
-  const [orderStatus, setOrderStatus] = useState(names[0]);
+  const [currentGuest, setCurrentGuest] = useState(names[0]);
 
-  console.log(orderStatus);
+  const submitOrderAddition = (food, course) => {
+    if (currentGuest === 'Sharing') {
+      addToSharedOrder(food, course);
+    } else {
+      addToOrder(food, course, currentGuest);
+    }
+    return true;
+  };
+  console.log(orders);
 
   return (
     <main className={styles.menuContainer}>
       <div className={styles.menuCardSection}>
         <MenuNavComponent
           orders={orders}
-          setOrderStatus={setOrderStatus}
-          orderStatus={orderStatus}
+          setCurrentGuest={setCurrentGuest}
+          currentGuest={currentGuest}
         />
-        <MenuCardComponent />
+        <MenuCardComponent
+          submitOrderAddition={submitOrderAddition}
+        />
       </div>
       <OrderCardComponent />
     </main>
@@ -33,11 +44,18 @@ MenuContainer.propTypes = {
     booking: PropTypes.object,
     orders: PropTypes.object,
     customerCount: PropTypes.number
-  }).isRequired
+  }).isRequired,
+  addToOrder: PropTypes.func.isRequired,
+  addToSharedOrder: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   orderStore: state.orderStore
 });
 
-export default connect(mapStateToProps, null)(MenuContainer);
+const mapDispatchToProps = (dispatch) => ({
+  addToOrder: (food, course, guest) => dispatch(addToOrder(food, course, guest)),
+  addToSharedOrder: (food, course) => dispatch(addToSharedOrder(food, course))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MenuContainer);

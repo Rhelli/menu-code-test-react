@@ -16,8 +16,9 @@ export const createNewOrder = (name, color) => ({
   color
 });
 
-export const createNewSharedOrder = () => ({
-  type: CREATE_NEW_SHARED_ORDER
+export const createNewSharedOrder = (color) => ({
+  type: CREATE_NEW_SHARED_ORDER,
+  color
 });
 
 export const addToOrder = (food, course, customer = null) => ({

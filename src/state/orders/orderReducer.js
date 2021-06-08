@@ -9,18 +9,7 @@ const initialState = {
     time: '',
     date: ''
   },
-  orders: {
-    James: {
-      color: {
-        backgroundColor: '#3A90D6'
-      }
-    },
-    Samantha: {
-      color: {
-        backgroundColor: '#FB8C00'
-      }
-    }
-  },
+  orders: {},
   customerCount: 0
 };
 
@@ -52,7 +41,8 @@ const orderReducer = (state = initialState, action) => {
       ...state,
       orders: {
         ...state.orders,
-        shared: {
+        Sharing: {
+          color: action.color,
           starters: '',
           mains: '',
           desserts: ''
@@ -74,8 +64,8 @@ const orderReducer = (state = initialState, action) => {
     case ADD_TO_SHARED_ORDER: return {
       ...state,
       orders: {
-        ...state,
-        shared: {
+        ...state.orders,
+        Sharing: {
           ...state.orders.shared,
           [action.course]: action.food
         }
@@ -97,7 +87,7 @@ const orderReducer = (state = initialState, action) => {
       ...state,
       orders: {
         ...state.orders,
-        shared: {
+        Sharing: {
           [action.course]: ''
         }
       }

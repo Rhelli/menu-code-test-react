@@ -1,4 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { orderPointReducer, ordersReducer, stockReducer } from './index';
 
@@ -14,6 +15,7 @@ const setupStore = () => {
     const logger = createLogger({ collapsed: true });
     middleware.push(logger);
   }
+  middleware.push(thunk);
 
   const store = createStore(
     rootReducer,
