@@ -10,7 +10,6 @@ const MenuCardComponent = () => {
 
   return (
     <div className={styles.menuCardContainer}>
-      <h1>Menu</h1>
       <div className={styles.startersMenu}>
         <h3>Starters</h3>
         <div>

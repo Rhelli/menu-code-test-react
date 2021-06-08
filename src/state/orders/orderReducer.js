@@ -9,7 +9,10 @@ const initialState = {
     time: '',
     date: ''
   },
-  orders: {},
+  orders: {
+    James: {},
+    Samantha: {}
+  },
   customerCount: 0
 };
 
