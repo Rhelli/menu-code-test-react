@@ -19,6 +19,11 @@
 	"plugins": [
 		"react"
 	],
+	"settings": {
+		"react": {
+			"version": "17.0.2"
+		}
+	},
 	"rules": {
 		"react/jsx-filename-extension": [
 			"warn",

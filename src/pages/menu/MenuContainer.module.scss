@@ -1,0 +1,10 @@
+.menuContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-self: flex-start;
+  padding: 20px;
+}

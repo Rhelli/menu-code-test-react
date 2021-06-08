@@ -20,20 +20,22 @@ const WelcomeContainer = ({ createNewBooking, createNewOrder }) => {
     return true;
   };
 
-  const createNewOrders = (guest1, guest2) => {
+  const submitNewOrders = (event, guest1, guest2) => {
     event.preventDefault();
-
-  }
+    createNewOrder(guest1);
+    createNewOrder(guest2);
+    history.push('/menu');
+  };
 
   return (
     <main className={styles.welcomeContainer}>
       <h1>Chez Paree</h1>
       <WelcomeInformationComponent />
       {
-        pageTurn ? (
+        !pageTurn ? (
           <WelcomeFormComponent submitNewBooking={submitNewBooking} />
         ) : (
-          <WelcomeNameEntryComponent />
+          <WelcomeNameEntryComponent submitNewOrders={submitNewOrders} />
         )
       }
       <WelcomeDescriptionComponent />
@@ -43,17 +45,12 @@ const WelcomeContainer = ({ createNewBooking, createNewOrder }) => {
 
 WelcomeContainer.propTypes = {
   createNewBooking: PropTypes.func.isRequired,
-  orderStore: PropTypes.shape({
-    booking: PropTypes.shape({
-      partySize: PropTypes.number,
-      time: PropTypes.string,
-      date: PropTypes.date
-    })
-  })
+  createNewOrder: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  createNewBooking: (partySize, date, time) => dispatch(createNewBooking(partySize, date, time))
+  createNewBooking: (partySize, date, time) => dispatch(createNewBooking(partySize, date, time)),
+  createNewOrder: (name) => dispatch(createNewOrder(name))
 });
 
 export default connect(null, mapDispatchToProps)(WelcomeContainer);

@@ -1,30 +1,34 @@
-const initialStateGen = (menuData, stockCount, lowStockItem) => {
-  const initialState = {
+export const menuGen = (menuData, stockCount, lowStockItem) => {
+  const menu = {
     starters: {},
     mains: {},
     desserts: {}
   };
 
   menuData.starters.map((start) => {
-    initialState.starters[start.name] = stockCount;
+    menu.starters[start.name] = stockCount;
     return true;
   });
 
   menuData.mains.map((main) => {
-    initialState.mains[main.name] = stockCount;
+    menu.mains[main.name] = stockCount;
     return true;
   });
 
   menuData.desserts.map((dessert) => {
     if (dessert.name === lowStockItem) {
-      initialState.desserts[dessert.name] = 1;
+      menu.desserts[dessert.name] = 1;
       return true;
     }
-    initialState.desserts[dessert.name] = stockCount;
+    menu.desserts[dessert.name] = stockCount;
     return true;
   });
 
-  return initialState;
+  return menu;
 };
 
-export default initialStateGen;
+export const priceFormatter = (price) => {
+  let newPrice = 0;
+  newPrice = price.toFixed(2);
+  return newPrice;
+};

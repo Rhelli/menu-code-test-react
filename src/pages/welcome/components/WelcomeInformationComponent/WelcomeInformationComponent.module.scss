@@ -40,6 +40,8 @@
   }
 
   .welcomeInformationTagsBar {
+    display: flex;
+    flex-flow: row nowrap;
     p {
       margin-right: 12px;
     }

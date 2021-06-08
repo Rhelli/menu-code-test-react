@@ -6,8 +6,8 @@ import MenuContainer from './pages/menu/MenuContainer';
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={WelcomeContainer} />
-      <Route exact path="/menu" component={MenuContainer} />
+      <Route path="/menu" component={WelcomeContainer} />
+      <Route exact path="/" component={MenuContainer} />
     </Switch>
   </BrowserRouter>
 );
