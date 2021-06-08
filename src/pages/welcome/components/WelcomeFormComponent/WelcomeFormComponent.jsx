@@ -11,8 +11,6 @@ const WelcomeFormComponent = ({ submitNewBooking }) => {
   const [date, changeDate] = useState(new Date());
   const [time, changeTime] = useState('12:00');
 
-  console.log(partySize, date, time);
-
   return (
     <div className={styles.welcomeFormComponent}>
       <h3>Make a booking</h3>
@@ -52,7 +50,7 @@ const WelcomeFormComponent = ({ submitNewBooking }) => {
           </div>
         </div>
         <button type="submit" className={styles.formSubmitButton}>
-          <p>Find A Table</p>
+          <p>Continue</p>
         </button>
       </form>
     </div>
