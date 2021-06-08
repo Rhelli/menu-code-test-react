@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
-import { priceFormatter, extractSubTotal } from '../../../../utils/menuUtils';
+import { priceFormatter, extractSubTotal, extractGrandTotal } from '../../../../utils/menuUtils';
 import styles from './OrderCardComponent.module.scss';
 
 const OrderCardComponent = ({ orders }) => {
@@ -46,12 +46,20 @@ const OrderCardComponent = ({ orders }) => {
                   )
                 }
                 <p>
+                  £
                   {extractSubTotal(orders, name)}
                 </p>
               </div>
             </div>
           ))
         }
+      </div>
+      <div>
+        <p>Grand Total:</p>
+        <p>
+          £
+          {extractGrandTotal(orders)}
+        </p>
       </div>
     </div>
   );

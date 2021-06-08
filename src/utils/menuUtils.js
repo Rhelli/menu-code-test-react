@@ -95,5 +95,20 @@ export const extractSubTotal = (orders, name) => {
       return true;
     });
   }
-  return `£${subTotal.toFixed(2)}`;
+  return subTotal.toFixed(2);
+};
+
+export const extractGrandTotal = (orders) => {
+  let grandTotal = 0;
+  if (orders) {
+    const names = Object.keys(orders);
+    names.map((name) => {
+      Object.values(orders[name]).map((item) => {
+        grandTotal += parseInt(10, item.price);
+        return true;
+      });
+      return true;
+    });
+  }
+  return grandTotal;
 };
