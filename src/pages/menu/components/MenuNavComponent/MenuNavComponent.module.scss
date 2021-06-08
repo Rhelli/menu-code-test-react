@@ -34,10 +34,19 @@
       }
     }
 
+    .unselected {
+      opacity: 0.6;
+    }
+    
+    .selected {
+      opacity: 1;
+    }
+
     .sharedButton {
       background-color: #37DACE;
     }
   }
 }
+
 
 

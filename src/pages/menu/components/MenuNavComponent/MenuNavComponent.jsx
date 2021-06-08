@@ -2,7 +2,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './MenuNavComponent.module.scss';
 
-const MenuNavComponent = ({ orders, setOrderStatus }) => {
+const MenuNavComponent = ({ orders, setOrderStatus, orderStatus }) => {
   const names = Object.keys(orders);
 
   return (
@@ -17,6 +17,7 @@ const MenuNavComponent = ({ orders, setOrderStatus }) => {
               onClick={() => setOrderStatus(name)}
               id={i}
               style={orders[name].color}
+              className={orderStatus === name ? styles.selected : styles.unselected}
               key={uuidv4()}
             >
               {name}

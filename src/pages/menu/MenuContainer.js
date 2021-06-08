@@ -8,14 +8,19 @@ import styles from './MenuContainer.module.scss';
 
 const MenuContainer = ({ orderStore }) => {
   const { orders } = orderStore;
-  const [orderStatus, setOrderStatus] = useState(null);
+  const names = Object.keys(orders);
+  const [orderStatus, setOrderStatus] = useState(names[0]);
 
   console.log(orderStatus);
 
   return (
     <main className={styles.menuContainer}>
       <div className={styles.menuCardSection}>
-        <MenuNavComponent orders={orders} setOrderStatus={setOrderStatus} />
+        <MenuNavComponent
+          orders={orders}
+          setOrderStatus={setOrderStatus}
+          orderStatus={orderStatus}
+        />
         <MenuCardComponent />
       </div>
       <OrderCardComponent />
