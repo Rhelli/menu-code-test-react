@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import MenuNavComponent from './components/MenuNavComponent/MenuNavComponent.jsx';
 import MenuCardComponent from './components/MenuCardComponent/MenuCardComponent.jsx';
 import OrderCardComponent from './components/OrderCardComponent/OrderCardComponent.jsx';
+import WaiterCardComponent from './components/WaiterCardComponent/WaiterCardComponent.jsx';
 import { addToOrder, removeFromOrder } from '../../state/orders/orderActions';
 import styles from './MenuContainer.module.scss';
 
@@ -29,10 +30,13 @@ const MenuContainer = ({ orderStore, addToOrder, removeFromOrder }) => {
           submitOrderAddition={submitOrderAddition}
         />
       </div>
-      <OrderCardComponent
-        orders={orders}
-        removeFromOrder={removeFromOrder}
-      />
+      <div className={styles.sideCardsSection}>
+        <OrderCardComponent
+          orders={orders}
+          removeFromOrder={removeFromOrder}
+        />
+        <WaiterCardComponent />
+      </div>
     </main>
   );
 };

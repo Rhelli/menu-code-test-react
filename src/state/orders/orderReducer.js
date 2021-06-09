@@ -1,6 +1,6 @@
 import {
   CREATE_NEW_BOOKING, CREATE_NEW_ORDER, CREATE_NEW_SHARED_ORDER, ADD_TO_ORDER,
-  ADD_TO_SHARED_ORDER, REMOVE_FROM_ORDER, REMOVE_FROM_SHARED_ORDER, RESET_ORDER
+  REMOVE_FROM_ORDER, RESET_ORDER
 } from './orderTypes';
 
 const initialState = {
@@ -9,7 +9,10 @@ const initialState = {
     time: '',
     date: ''
   },
-  orders: {},
+  orders: {
+    'Guest 1': {},
+    'Guest 2': {}
+  },
   customerCount: 0
 };
 

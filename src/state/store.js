@@ -1,12 +1,13 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
-import { orderPointReducer, ordersReducer, stockReducer } from './index';
+import { orderPointReducer, ordersReducer, stockReducer, waiterReducer } from './index';
 
 const rootReducer = combineReducers({
   orderPointStore: orderPointReducer,
   orderStore: ordersReducer,
-  stockStore: stockReducer
+  stockStore: stockReducer,
+  waiterStore: waiterReducer
 });
 
 const setupStore = () => {
