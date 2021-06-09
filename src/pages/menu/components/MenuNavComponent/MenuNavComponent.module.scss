@@ -1,0 +1,52 @@
+.menuNavContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  height: auto;
+  padding: 20px 15px;
+  border: 2px solid #707070;
+  border-radius: 3px;
+
+  .menuNavButtons {
+    display: flex;
+    width: auto;
+    margin-left: auto;
+
+    button {
+      border: none;
+      outline: none;
+      color: #154360;
+      padding: 6px 12px;
+      font-size: 12px;
+      margin-left: 5px;
+      border-radius: 3px;
+      transition: 0.1s;
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 0.75;
+        transition: 0.1s;
+      }
+
+      &:active,
+      &:focus {
+        opacity: 1;
+      }
+    }
+
+    .unselected {
+      opacity: 0.6;
+    }
+    
+    .selected {
+      opacity: 1;
+    }
+
+    .sharedButton {
+      background-color: #37DACE;
+    }
+  }
+}
+
+
+

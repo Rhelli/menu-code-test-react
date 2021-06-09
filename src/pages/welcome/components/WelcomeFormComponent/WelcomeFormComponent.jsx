@@ -11,8 +11,6 @@ const WelcomeFormComponent = ({ submitNewBooking }) => {
   const [date, changeDate] = useState(new Date());
   const [time, changeTime] = useState('12:00');
 
-  console.log(partySize, date, time);
-
   return (
     <div className={styles.welcomeFormComponent}>
       <h3>Make a booking</h3>
@@ -22,7 +20,7 @@ const WelcomeFormComponent = ({ submitNewBooking }) => {
           className={styles.partySize}
         >
           <p>Party Size</p>
-          <select id="partySize" name="partySize">
+          <select id="partySize" name="partySize" required>
             <option value="2">For 2</option>
           </select>
         </div>
@@ -40,7 +38,7 @@ const WelcomeFormComponent = ({ submitNewBooking }) => {
           </div>
           <div onChange={(event) => changeTime(event.target.value)}>
             <p>Time</p>
-            <select id="time" name="time">
+            <select id="time" name="time" required>
               {
                 times.map((time) => (
                   <option key={uuidv4()} value={time}>
@@ -52,7 +50,7 @@ const WelcomeFormComponent = ({ submitNewBooking }) => {
           </div>
         </div>
         <button type="submit" className={styles.formSubmitButton}>
-          <p>Find A Table</p>
+          <p>Continue</p>
         </button>
       </form>
     </div>

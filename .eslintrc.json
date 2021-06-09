@@ -19,6 +19,11 @@
 	"plugins": [
 		"react"
 	],
+	"settings": {
+		"react": {
+			"version": "17.0.2"
+		}
+	},
 	"rules": {
 		"react/jsx-filename-extension": [
 			"warn",
@@ -32,6 +37,7 @@
 		"react/react-in-jsx-scope": "off",
 		"import/no-unresolved": "off",
 		"no-plusplus": "off",
+		"radix": "off",
 		"no-return-assign": 0,
 		"no-param-reassign": 0,
 		"no-shadow": "off"

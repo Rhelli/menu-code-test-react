@@ -5,7 +5,7 @@ const initialState = {
 };
 
 const orderPointReducer = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case UPDATE_ORDER_POINT: return {
       ...state,
       orderPoint: action.payload

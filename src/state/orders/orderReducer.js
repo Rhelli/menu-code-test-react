@@ -1,6 +1,6 @@
 import {
   CREATE_NEW_BOOKING, CREATE_NEW_ORDER, CREATE_NEW_SHARED_ORDER, ADD_TO_ORDER,
-  ADD_TO_SHARED_ORDER, REMOVE_FROM_ORDER, REMOVE_FROM_SHARED_ORDER, RESET_ORDER
+  REMOVE_FROM_ORDER, RESET_ORDER
 } from './orderTypes';
 
 const initialState = {
@@ -9,7 +9,10 @@ const initialState = {
     time: '',
     date: ''
   },
-  orders: {},
+  orders: {
+    'Guest 1': {},
+    'Guest 2': {}
+  },
   customerCount: 0
 };
 
@@ -28,10 +31,11 @@ const orderReducer = (state = initialState, action) => {
       ...state,
       orders: {
         ...state.orders,
-        [action.payload]: {
-          starters: '',
-          mains: '',
-          desserts: ''
+        [action.name]: {
+          color: action.color,
+          starters: {},
+          mains: {},
+          desserts: {}
         }
       }
     };
@@ -40,10 +44,11 @@ const orderReducer = (state = initialState, action) => {
       ...state,
       orders: {
         ...state.orders,
-        shared: {
-          starters: '',
-          mains: '',
-          desserts: ''
+        Sharing: {
+          color: action.color,
+          starters: {},
+          mains: {},
+          desserts: {}
         }
       }
     };
@@ -52,20 +57,12 @@ const orderReducer = (state = initialState, action) => {
       ...state,
       orders: {
         ...state.orders,
-        [action.customer]: {
-          ...state.orders[action.customer],
-          [action.course]: action.food
-        }
-      }
-    };
-
-    case ADD_TO_SHARED_ORDER: return {
-      ...state,
-      orders: {
-        ...state,
-        shared: {
-          ...state.orders.shared,
-          [action.course]: action.food
+        [action.guest]: {
+          ...state.orders[action.guest],
+          [action.course]: {
+            food: action.food,
+            price: action.price
+          }
         }
       }
     };
@@ -75,18 +72,8 @@ const orderReducer = (state = initialState, action) => {
       orders: {
         ...state.orders,
         [action.customer]: {
-          ...state[action.customer],
-          [action.course]: ''
-        }
-      }
-    };
-
-    case REMOVE_FROM_SHARED_ORDER: return {
-      ...state,
-      orders: {
-        ...state.orders,
-        shared: {
-          [action.course]: ''
+          ...state.orders[action.customer],
+          [action.course]: {}
         }
       }
     };

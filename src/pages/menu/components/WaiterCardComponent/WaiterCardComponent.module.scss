@@ -1,0 +1,9 @@
+.waiterCardContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  min-height: 100px;
+  height: auto;
+  max-height: 50%;
+  border: 2px solid #707070;
+}

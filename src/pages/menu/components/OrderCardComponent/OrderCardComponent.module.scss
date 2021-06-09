@@ -1,0 +1,95 @@
+.orderCardContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: auto;
+  max-height: 50%;
+  border: 2px solid #707070;
+  border-radius: 3px;
+  margin-left: auto;
+
+  h3 {
+    height: 12%;
+    padding: 10px 15px;
+    border-bottom: 1px solid #d8d9db;
+  }
+
+  .orderList {
+    height: 88%;
+    padding: 0 10px;
+    overflow-y: auto;
+
+    h5 {
+      padding: 0 10px;
+    }
+
+    .individualList {
+      padding: 20px 0;
+      border-bottom: 1px solid #d8d9db;
+
+      h5 {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
+      .orderItem,
+      .individualTotal {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        padding: 5px 10px;
+        font-size: 14px;
+
+        .price,
+        .total {
+          margin-left: auto;
+        }
+
+        .total {
+          margin-right: 34px; 
+        }
+
+        button {
+          outline: none;
+          border: none;
+          background: transparent;
+          margin-left: 10px;
+
+          svg {
+            font-size: 18px;
+            position: relative;
+            top: 1px;
+            transition-duration: 0.1s;
+          }
+
+          &:hover {
+            svg {
+              color: #da3743;
+              transition-duration: 0.1s;
+            }
+          }
+        }
+      }
+
+      .individualTotal {
+        background-color: #FAE6E8;
+        border-top: 2px solid #E8828A;
+      }
+    }
+  }
+
+  .grandTotalContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    padding: 20px 10px;
+
+    p {
+      font-weight: 700;
+    }
+
+    p:last-child {
+      margin-left: auto;
+    }
+  }
+}
