@@ -3,22 +3,22 @@ import {
   TRIGGER_WAITER_SNOBBY_ERROR, REMOVE_WAITER_MESSAGE
 } from './waiterTypes';
 
-export const triggerWaiterMessage = (id, message) => ({
+export const triggerWaiterMessage = (message) => ({
   type: TRIGGER_WAITER_MESSAGE,
   payload: message
 });
 
-export const triggerWaiterCoursesError = (id, errorMessage) => ({
+export const triggerWaiterCoursesError = (errorMessage) => ({
   type: TRIGGER_WAITER_COURSES_ERROR,
   payload: errorMessage
 });
 
-export const triggerWaiterStockError = (id, stockErrorMessage) => ({
+export const triggerWaiterStockError = (stockErrorMessage) => ({
   type: TRIGGER_WAITER_STOCK_ERROR,
   payload: stockErrorMessage
 });
 
-export const triggerWaiterSnobbyError = (id, snobbyError) => ({
+export const triggerWaiterSnobbyError = (snobbyError) => ({
   type: TRIGGER_WAITER_SNOBBY_ERROR,
   payload: snobbyError
 });

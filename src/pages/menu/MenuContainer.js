@@ -7,28 +7,38 @@ import OrderCardComponent from './components/OrderCardComponent/OrderCardCompone
 import WaiterCardComponent from './components/WaiterCardComponent/WaiterCardComponent.jsx';
 import { addToOrder, removeFromOrder } from '../../state/orders/orderActions';
 import { decreaseStock, increaseStock } from '../../state/stock/stockActions';
+import { triggerWaiterStockError, triggerWaiterSnobbyError } from '../../state/waiter/waiterActions';
+import { waiterStartUpMessages, waiterStockErrorMessages, snobbyRealityCheck } from '../../utils/waiterUtils';
 import styles from './MenuContainer.module.scss';
 
 const MenuContainer = ({
   orderStore, waiterStore, stockStore, addToOrder, removeFromOrder, decreaseStock, increaseStock,
+  triggerWaiterStockError, triggerWaiterSnobbyError
 }) => {
   const { orders } = orderStore;
   const { messageList } = waiterStore;
   const names = Object.keys(orders);
   const [currentGuest, setCurrentGuest] = useState(names[0]);
-  console.log(stockStore.starters);
-  console.log(orderStore.orders);
 
   const submitOrderAddition = (food, price, course) => {
-    if (stockStore[course][food] > 1) {
-      addToOrder(food, price, course, currentGuest);
-      decreaseStock(food, course);
+    console.log(food);
+    if (stockStore[course][food] > 0) {
+      if (snobbyRealityCheck(orders, currentGuest, food)[1]) {
+        console.log('hello');
+        triggerWaiterSnobbyError(snobbyRealityCheck(orders, currentGuest, food)[0]);
+      } else {
+        addToOrder(food, price, course, currentGuest);
+        decreaseStock(food, course);
+      }
+    } else {
+      console.log(food);
+      triggerWaiterStockError(waiterStockErrorMessages(food));
     }
     return true;
   };
 
   const submitOrderDeletion = (food, course, name) => {
-    removeFromOrder(name, food, course);
+    removeFromOrder(food, course, name);
     increaseStock(food, course);
   };
 
@@ -83,7 +93,9 @@ const mapDispatchToProps = (dispatch) => ({
   addToOrder: (food, price, course, guest) => dispatch(addToOrder(food, price, course, guest)),
   removeFromOrder: (food, course, guest) => dispatch(removeFromOrder(food, course, guest)),
   increaseStock: (food, course) => dispatch(increaseStock(food, course)),
-  decreaseStock: (food, course) => dispatch(decreaseStock(food, course))
+  decreaseStock: (food, course) => dispatch(decreaseStock(food, course)),
+  triggerWaiterStockError: (stockErrorMessage) => dispatch(triggerWaiterStockError(stockErrorMessage)),
+  triggerWaiterSnobbyError: (snobbyError) => dispatch(triggerWaiterSnobbyError(snobbyError))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MenuContainer);

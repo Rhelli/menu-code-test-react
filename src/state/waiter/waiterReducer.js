@@ -2,9 +2,12 @@ import {
   TRIGGER_WAITER_MESSAGE, TRIGGER_WAITER_COURSES_ERROR, TRIGGER_WAITER_STOCK_ERROR,
   TRIGGER_WAITER_SNOBBY_ERROR, REMOVE_WAITER_MESSAGE
 } from './waiterTypes';
+import { waiterStartupMessage } from '../../utils/waiterUtils';
 
 const initialState = {
-  messageList: []
+  messageList: [
+    waiterStartupMessage()
+  ]
 };
 
 const waiterReducer = (state = initialState, action) => {
@@ -12,28 +15,28 @@ const waiterReducer = (state = initialState, action) => {
     case TRIGGER_WAITER_MESSAGE: return {
       messageList: [
         ...state.messageList,
-        action.message
+        action.payload
       ]
     };
 
     case TRIGGER_WAITER_COURSES_ERROR: return {
       messageList: [
         ...state.messageList,
-        action.errorMessage
+        action.payload
       ]
     };
 
     case TRIGGER_WAITER_STOCK_ERROR: return {
       messageList: [
         ...state.messageList,
-        action.stockErrorMessage
+        action.payload
       ]
     };
 
     case TRIGGER_WAITER_SNOBBY_ERROR: return {
       messageList: [
         ...state.messageList,
-        action.snobbyError
+        action.payload
       ]
     };
 
