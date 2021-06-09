@@ -97,7 +97,7 @@ const orderReducer = (state = initialState, action) => {
       orders: {
         ...state.orders,
         Sharing: {
-          ...state.orders.shared,
+          ...state.orders.Sharing,
           [action.course]: {
             food: action.food,
             price: action.price

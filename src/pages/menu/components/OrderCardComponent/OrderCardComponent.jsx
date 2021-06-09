@@ -8,6 +8,7 @@ import styles from './OrderCardComponent.module.scss';
 
 const OrderCardComponent = ({ orders }) => {
   const names = Object.keys(orders);
+  console.log(names);
 
   return (
     <div className={styles.orderCardContainer}>
@@ -17,26 +18,20 @@ const OrderCardComponent = ({ orders }) => {
         names.map((name) => (
           <div key={uuidv4()} className={styles.individualList}>
             <h5>{name}</h5>
-            <div
-              key={uuidv4()}
-              className={styles.orderItem}
-            >
             {
-              Object.values(orders[name]).length > 1 ? (
-                <>
-                  <p>{extractOrderDetails(orders, name).food}</p>
-                  <p className={styles.price}>
-                  {extractOrderDetails(orders, name).price}
-                  </p>
+              extractOrderDetails(orders, name).map((item) => (
+                <div
+                  key={uuidv4()}
+                  className={styles.orderItem}
+                >
+                  <p>{item[0]}</p>
+                  <p className={styles.price}>{item[1]}</p>
                   <button>
                     <FontAwesomeIcon icon={faTimes} />
                   </button>
-                </>
-              ) : (
-                null
-              )
+                </div>
+              ))
             }
-            </div>
             <div className={styles.individualTotal}>
             {
               name !== 'Sharing' ? (

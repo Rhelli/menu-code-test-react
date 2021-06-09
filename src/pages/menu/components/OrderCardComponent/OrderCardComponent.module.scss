@@ -27,6 +27,11 @@
       padding: 20px 0;
       border-bottom: 1px solid #d8d9db;
 
+      h5 {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
       .orderItem,
       .individualTotal {
         display: flex;
@@ -69,7 +74,6 @@
       .individualTotal {
         background-color: #FAE6E8;
         border-top: 2px solid #E8828A;
-;
       }
     }
   }

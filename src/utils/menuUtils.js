@@ -118,13 +118,13 @@ export const extractGrandTotal = (orders) => {
 };
 
 export const extractOrderDetails = (orders, name) => {
-  let foodItem = {};
-  Object.values(orders[name]).map((item) => {
-    const price = parseInt(item.price).toFixed(2);
-    foodItem = {
-      food: item.food,
-      price: `£${price}`
-    };
+  const foodItem = [];
+  Object.values(orders[name]).map((item, i) => {
+    if (i > 0) {
+      if (item.food && item.price) {
+        foodItem.push([item.food, `£${parseInt(item.price).toFixed(2)}`])
+      }
+    }
     return true;
   });
   return foodItem;

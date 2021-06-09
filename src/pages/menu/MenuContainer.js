@@ -13,11 +13,7 @@ const MenuContainer = ({ orderStore, addToOrder, addToSharedOrder }) => {
   const [currentGuest, setCurrentGuest] = useState(names[0]);
 
   const submitOrderAddition = (food, price, course) => {
-    if (currentGuest === 'Sharing') {
-      addToSharedOrder(food, price, course);
-    } else {
-      addToOrder(food, price, course, currentGuest);
-    }
+    addToOrder(food, price, course, currentGuest);
     return true;
   };
 
