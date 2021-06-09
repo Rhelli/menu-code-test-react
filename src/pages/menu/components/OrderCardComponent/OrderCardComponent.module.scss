@@ -10,7 +10,7 @@
 
   h3 {
     height: 12%;
-    padding: 10px;
+    padding: 10px 15px;
     border-bottom: 1px solid #d8d9db;
   }
 
@@ -19,18 +19,29 @@
     padding: 0 10px;
     overflow-y: auto;
 
+    h5 {
+      padding: 0 10px;
+    }
+
     .individualList {
-      padding: 10px 0;
+      padding: 20px 0;
       border-bottom: 1px solid #d8d9db;
 
-      div {
+      .orderItem,
+      .individualTotal {
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        padding: 5px 0;
+        padding: 5px 10px;
+        font-size: 14px;
 
-        .price {
+        .price,
+        .total {
           margin-left: auto;
+        }
+
+        .total {
+          margin-right: 34px; 
         }
 
         button {
@@ -54,6 +65,27 @@
           }
         }
       }
+
+      .individualTotal {
+        background-color: #FAE6E8;
+        border-top: 2px solid #E8828A;
+;
+      }
+    }
+  }
+
+  .grandTotalContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    padding: 20px 10px;
+
+    p {
+      font-weight: 700;
+    }
+
+    p:last-child {
+      margin-left: auto;
     }
   }
 }

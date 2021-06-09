@@ -110,5 +110,18 @@ export const extractGrandTotal = (orders) => {
       return true;
     });
   }
-  return grandTotal;
+  return grandTotal.toFixed(2);
+};
+
+export const extractOrderDetails = (orders, name) => {
+  let foodItem = {};
+  Object.values(orders[name]).map((item) => {
+    const price = parseInt(10, item.price).toFixed(2);
+    foodItem = {
+      food: item.food,
+      price
+    };
+    return true;
+  });
+  return foodItem;
 };

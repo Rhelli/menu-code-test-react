@@ -9,31 +9,7 @@ const initialState = {
     time: '',
     date: ''
   },
-  orders: {
-    Sam: {
-      starters: {
-        food: 'Soup',
-        price: '3'
-      },
-      mains: {
-        food: 'Meatballs',
-        price: '18'
-      }
-    },
-    Tim: {
-      starters: {
-        food: 'Prawn Cocktail',
-        price: '4'
-      }
-    },
-    Sharing: {
-      mains: {
-        food: 'Meatballs',
-        price: '18'
-      }
-    }
-  },
-  customerCount: 0
+  orders: {}
 };
 
 const orderReducer = (state = initialState, action) => {
