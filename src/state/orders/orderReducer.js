@@ -9,7 +9,36 @@ const initialState = {
     time: '',
     date: ''
   },
-  orders: {}
+  orders: {
+    Sam: {
+      color: {
+        backgroundColor: '#D5DBDB'
+      },
+      starters: {
+        food: 'Soup',
+        price: '4'
+      },
+      mains: {},
+      desserts: {}
+    },
+    Tim: {
+      color: {
+        backgroundColor: '#A569BD'
+      },
+      starters: {},
+      mains: {},
+      desserts: {}
+    },
+    Sharing: {
+      color: {
+        backgroundColor: '#37DACE'
+      },
+      starters: {},
+      mains: {},
+      desserts: {}
+    }
+  },
+  customerCount: 0
 };
 
 const orderReducer = (state = initialState, action) => {
@@ -53,8 +82,8 @@ const orderReducer = (state = initialState, action) => {
       ...state,
       orders: {
         ...state.orders,
-        [action.customer]: {
-          ...state.orders[action.customer],
+        [action.guest]: {
+          ...state.orders[action.guest],
           [action.course]: {
             food: action.food,
             price: action.price

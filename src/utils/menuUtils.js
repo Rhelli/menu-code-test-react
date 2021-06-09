@@ -91,11 +91,13 @@ export const extractSubTotal = (orders, name) => {
   let subTotal = 0;
   if (orders) {
     Object.values(orders[name]).map((item) => {
-      subTotal += parseInt(10, item.price);
+      if (item.price) {
+        subTotal += parseInt(item.price);
+      }
       return true;
     });
   }
-  return subTotal.toFixed(2);
+  return `£${subTotal.toFixed(2)}`;
 };
 
 export const extractGrandTotal = (orders) => {
@@ -104,22 +106,24 @@ export const extractGrandTotal = (orders) => {
     const names = Object.keys(orders);
     names.map((name) => {
       Object.values(orders[name]).map((item) => {
-        grandTotal += parseInt(10, item.price);
+        if (item.price) {
+          grandTotal += parseInt(item.price);
+        }
         return true;
       });
       return true;
     });
   }
-  return grandTotal.toFixed(2);
+  return `£${grandTotal.toFixed(2)}`;
 };
 
 export const extractOrderDetails = (orders, name) => {
   let foodItem = {};
   Object.values(orders[name]).map((item) => {
-    const price = parseInt(10, item.price).toFixed(2);
+    const price = parseInt(item.price).toFixed(2);
     foodItem = {
       food: item.food,
-      price
+      price: `£${price}`
     };
     return true;
   });

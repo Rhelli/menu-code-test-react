@@ -20,6 +20,7 @@ const MenuContainer = ({ orderStore, addToOrder, addToSharedOrder }) => {
     }
     return true;
   };
+
   console.log(orders);
 
   return (
@@ -54,7 +55,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addToOrder: (food, course, guest) => dispatch(addToOrder(food, course, guest)),
+  addToOrder: (food, price, course, guest) => dispatch(addToOrder(food, price, course, guest)),
   addToSharedOrder: (food, course) => dispatch(addToSharedOrder(food, course))
 });
 
