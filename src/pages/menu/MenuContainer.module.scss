@@ -16,7 +16,7 @@
   .sideCardsSection {
     display: flex;
     flex-flow: column nowrap;
-    align-items: stretch;
+    justify-content: space-evenly;
     width: 40%;
     height: 100%;
     padding-left: 10px;

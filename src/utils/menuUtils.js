@@ -130,3 +130,25 @@ export const extractOrderDetails = (orders, name) => {
   });
   return foodItem;
 };
+
+export const checkFinalOrder = (orders) => {
+  const blame = [];
+  Object.keys(orders).map((name) => {
+    let count = 2;
+    if (!orders[name].starters.food) {
+      count--;
+    }
+    if (!orders[name].mains.food) {
+      count = -0;
+      blame.push(name);
+      return blame;
+    }
+    if (!orders[name].desserts.food) {
+      count--;
+    }
+    if (count === 0) {
+      blame.push(name);
+    }
+  });
+  return blame;
+};

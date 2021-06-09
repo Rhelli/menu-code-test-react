@@ -1,36 +1,39 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import MenuNavComponent from './components/MenuNavComponent/MenuNavComponent.jsx';
 import MenuCardComponent from './components/MenuCardComponent/MenuCardComponent.jsx';
 import OrderCardComponent from './components/OrderCardComponent/OrderCardComponent.jsx';
 import WaiterCardComponent from './components/WaiterCardComponent/WaiterCardComponent.jsx';
+import NextCardComponent from './components/NextCardComponent/NextCardComponent.jsx';
 import { addToOrder, removeFromOrder } from '../../state/orders/orderActions';
 import { decreaseStock, increaseStock } from '../../state/stock/stockActions';
-import { triggerWaiterStockError, triggerWaiterSnobbyError } from '../../state/waiter/waiterActions';
-import { waiterStockErrorMessages, snobbyRealityCheck } from '../../utils/waiterUtils';
+import { checkFinalOrder } from '../../utils/menuUtils';
+import { triggerWaiterMessage } from '../../state/waiter/waiterActions';
+import { waiterStockErrorMessages, snobbyRealityCheck, orderCheck } from '../../utils/waiterUtils';
 import styles from './MenuContainer.module.scss';
 
 const MenuContainer = ({
   orderStore, waiterStore, stockStore, addToOrder, removeFromOrder, decreaseStock, increaseStock,
-  triggerWaiterStockError, triggerWaiterSnobbyError
+  triggerWaiterMessage
 }) => {
   const { orders } = orderStore;
   const { messageList } = waiterStore;
   const names = Object.keys(orders);
+  const history = useHistory();
   const [currentGuest, setCurrentGuest] = useState(names[0]);
 
   const submitOrderAddition = (food, price, course) => {
     if (stockStore[course][food] > 0) {
       if (snobbyRealityCheck(orders, currentGuest, food)[1]) {
-        console.log('hello');
-        triggerWaiterSnobbyError(snobbyRealityCheck(orders, currentGuest, food)[0]);
+        triggerWaiterMessage(snobbyRealityCheck(orders, currentGuest, food)[0]);
       } else {
         addToOrder(food, price, course, currentGuest);
         decreaseStock(food, course);
       }
     } else {
-      triggerWaiterStockError(waiterStockErrorMessages(food));
+      triggerWaiterMessage(waiterStockErrorMessages(food));
     }
     return true;
   };
@@ -38,6 +41,17 @@ const MenuContainer = ({
   const submitOrderDeletion = (food, course, name) => {
     removeFromOrder(food, course, name);
     increaseStock(food, course);
+  };
+
+  console.log(orders);
+
+  const checkOrderFinalisation = () => {
+    if (checkFinalOrder(orders).length) {
+      triggerWaiterMessage(orderCheck(checkFinalOrder(orders)));
+      return true;
+    }
+    history.push('/confirmation');
+    return true;
   };
 
   return (
@@ -58,6 +72,7 @@ const MenuContainer = ({
           submitOrderDeletion={submitOrderDeletion}
           className={styles.orderCardComponent}
         />
+        <NextCardComponent checkOrderFinalisation={checkOrderFinalisation} />
         <WaiterCardComponent className={styles.waiterCardComponent} messageList={messageList} />
       </div>
     </main>
@@ -82,8 +97,7 @@ MenuContainer.propTypes = {
   removeFromOrder: PropTypes.func.isRequired,
   increaseStock: PropTypes.func.isRequired,
   decreaseStock: PropTypes.func.isRequired,
-  triggerWaiterStockError: PropTypes.func.isRequired,
-  triggerWaiterSnobbyError: PropTypes.func.isRequired
+  triggerWaiterMessage: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -97,8 +111,7 @@ const mapDispatchToProps = (dispatch) => ({
   removeFromOrder: (food, course, guest) => dispatch(removeFromOrder(food, course, guest)),
   increaseStock: (food, course) => dispatch(increaseStock(food, course)),
   decreaseStock: (food, course) => dispatch(decreaseStock(food, course)),
-  triggerWaiterStockError: (stockErrorMessage) => dispatch(triggerWaiterStockError(stockErrorMessage)),
-  triggerWaiterSnobbyError: (snobbyError) => dispatch(triggerWaiterSnobbyError(snobbyError))
+  triggerWaiterMessage: (message) => dispatch(triggerWaiterMessage(message))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MenuContainer);

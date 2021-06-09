@@ -43,6 +43,21 @@ export const snobbyRealityCheck = (orders, guest, selectedFood) => {
   return message;
 };
 
+export const orderCheck = (guestArray) => {
+  let message = '';
+  if (guestArray.length > 1) {
+    guestArray.map((name) => {
+      message += `${name}, `;
+      return true;
+    });
+    message += 'you have not completed your orders. Each guest must have a main and a starter or dessert.';
+  } else {
+    message += `${guestArray[0]}, you have not completed your order. 
+    Please ensure you have a main course and a starter or dessert.`;
+  }
+  return message;
+};
+
 const randomColor = (number) => {
   switch (number) {
     case '0': return {
