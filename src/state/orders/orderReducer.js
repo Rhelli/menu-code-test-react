@@ -10,8 +10,22 @@ const initialState = {
     date: ''
   },
   orders: {
-    'Guest 1': {},
-    'Guest 2': {}
+    'Guest 1': {
+      color: {
+        backgroundColor: '#FFA726'
+      },
+      starters: {},
+      mains: {},
+      desserts: {}
+    },
+    'Guest 2': {
+      color: {
+        backgroundColor: '#A569BD'
+      },
+      starters: {},
+      mains: {},
+      desserts: {}
+    }
   },
   customerCount: 0
 };

@@ -13,7 +13,7 @@ const stockReducer = (state = initialState, action) => {
       ...state,
       [action.course]: {
         ...state[action.course],
-        [action.food]: action.food++
+        [action.food]: state[action.course][action.food] += 1
       }
     };
 
@@ -21,7 +21,7 @@ const stockReducer = (state = initialState, action) => {
       ...state,
       [action.course]: {
         ...state[action.course],
-        [action.food]: action.food--
+        [action.food]: state[action.course][action.food] -= 1
       }
     };
 

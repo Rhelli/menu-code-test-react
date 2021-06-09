@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { extractSubTotal, extractGrandTotal, extractOrderDetails } from '../../../../utils/menuUtils';
 import styles from './OrderCardComponent.module.scss';
 
-const OrderCardComponent = ({ orders, removeFromOrder }) => {
+const OrderCardComponent = ({ orders, submitOrderDeletion }) => {
   const names = Object.keys(orders);
 
   return (
@@ -25,7 +25,7 @@ const OrderCardComponent = ({ orders, removeFromOrder }) => {
                 >
                   <p>{item[0]}</p>
                   <p className={styles.price}>{item[1]}</p>
-                  <button onClick={() => removeFromOrder(item[0], item[2], name)}>
+                  <button onClick={() => submitOrderDeletion(item[0], item[2], name)}>
                     <FontAwesomeIcon icon={faTimes} />
                   </button>
                 </div>
@@ -68,7 +68,7 @@ const OrderCardComponent = ({ orders, removeFromOrder }) => {
 
 OrderCardComponent.propTypes = {
   orders: PropTypes.object.isRequired,
-  removeFromOrder: PropTypes.func.isRequired
+  submitOrderDeletion: PropTypes.func.isRequired
 };
 
 export default OrderCardComponent;
