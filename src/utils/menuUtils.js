@@ -119,10 +119,11 @@ export const extractGrandTotal = (orders) => {
 
 export const extractOrderDetails = (orders, name) => {
   const foodItem = [];
+  const keys = Object.keys(orders[name]);
   Object.values(orders[name]).map((item, i) => {
     if (i > 0) {
       if (item.food && item.price) {
-        foodItem.push([item.food, `£${parseInt(item.price).toFixed(2)}`])
+        foodItem.push([item.food, `£${parseInt(item.price).toFixed(2)}`, keys[i]]);
       }
     }
     return true;

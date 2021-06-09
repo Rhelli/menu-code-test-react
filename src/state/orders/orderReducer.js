@@ -111,7 +111,7 @@ const orderReducer = (state = initialState, action) => {
       orders: {
         ...state.orders,
         [action.customer]: {
-          ...state[action.customer],
+          ...state.orders[action.customer],
           [action.course]: {}
         }
       }

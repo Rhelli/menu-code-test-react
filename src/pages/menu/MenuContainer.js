@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import MenuNavComponent from './components/MenuNavComponent/MenuNavComponent.jsx';
 import MenuCardComponent from './components/MenuCardComponent/MenuCardComponent.jsx';
 import OrderCardComponent from './components/OrderCardComponent/OrderCardComponent.jsx';
-import { addToOrder, addToSharedOrder } from '../../state/orders/orderActions';
+import { addToOrder, addToSharedOrder, removeFromOrder } from '../../state/orders/orderActions';
 import styles from './MenuContainer.module.scss';
 
-const MenuContainer = ({ orderStore, addToOrder, addToSharedOrder }) => {
+const MenuContainer = ({ orderStore, addToOrder, removeFromOrder }) => {
   const { orders } = orderStore;
   const names = Object.keys(orders);
   const [currentGuest, setCurrentGuest] = useState(names[0]);
@@ -16,8 +16,6 @@ const MenuContainer = ({ orderStore, addToOrder, addToSharedOrder }) => {
     addToOrder(food, price, course, currentGuest);
     return true;
   };
-
-  console.log(orders);
 
   return (
     <main className={styles.menuContainer}>
@@ -31,7 +29,10 @@ const MenuContainer = ({ orderStore, addToOrder, addToSharedOrder }) => {
           submitOrderAddition={submitOrderAddition}
         />
       </div>
-      <OrderCardComponent orders={orders} />
+      <OrderCardComponent
+        orders={orders}
+        removeFromOrder={removeFromOrder}
+      />
     </main>
   );
 };
@@ -52,7 +53,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addToOrder: (food, price, course, guest) => dispatch(addToOrder(food, price, course, guest)),
-  addToSharedOrder: (food, course) => dispatch(addToSharedOrder(food, course))
+  removeFromOrder: (food, course, guest) => dispatch(removeFromOrder(food, course, guest))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MenuContainer);
