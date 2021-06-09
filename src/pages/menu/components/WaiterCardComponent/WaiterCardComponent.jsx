@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
+import { randomBackgroundColor } from '../../../../utils/waiterUtils';
 import styles from './WaiterCardComponent.module.scss';
 
 const WaiterCardComponent = ({ messageList }) => (
   <div className={styles.waiterCardContainer}>
     {
       messageList.map((message) => (
-        <div key={uuidv4()}>
+        <div className={styles.waiterMessage} style={randomBackgroundColor()} key={uuidv4()}>
           <p>{message}</p>
         </div>
       ))

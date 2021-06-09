@@ -6,7 +6,8 @@ import { waiterStartupMessage } from '../../utils/waiterUtils';
 
 const initialState = {
   messageList: [
-    waiterStartupMessage()
+    waiterStartupMessage()[0],
+    waiterStartupMessage()[1]
   ]
 };
 

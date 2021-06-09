@@ -1,9 +1,54 @@
 .waiterCardContainer {
   display: flex;
-  flex-flow: column nowrap;
+  position: relative;
+  flex-flow: column-reverse nowrap;
+  justify-content: flex-end;
   width: 100%;
-  min-height: 100px;
-  height: auto;
-  max-height: 50%;
-  border: 2px solid #707070;
+  height: 50%;
+  padding: 5px;
+  margin: 20px 0 auto 0;
+  overflow-y: auto;
+
+  &:after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(
+      180deg, 
+      rgba(221,221,221,0) 88.8%,
+      rgba(255,255,255,1) 90.3%,
+      rgba(255,255,255,1) 988.6%
+    );
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    background-color: #909090;
+  }
+
+  .waiterMessage {
+    height: auto;
+    padding: 16px;
+    border-radius: 20px 20px 2px 20px;
+    margin-bottom: 15px;
+    -webkit-box-shadow: 0px 0px 12px -2px rgba(20,5,7,0.6);
+    -moz-box-shadow: 0px 0px 12px -2px rgba(20,5,7,0.6);
+    box-shadow: 0px 0px 12px -2px rgba(20,5,7,0.6);
+
+    p {
+      font-size: 16px;
+      line-height: 120%;
+      color: #fefefe;
+    }
+  }
+
+  .dummyDiv {
+    float: left;
+    clear: both;
+  }
 }

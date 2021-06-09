@@ -8,7 +8,7 @@ import WaiterCardComponent from './components/WaiterCardComponent/WaiterCardComp
 import { addToOrder, removeFromOrder } from '../../state/orders/orderActions';
 import { decreaseStock, increaseStock } from '../../state/stock/stockActions';
 import { triggerWaiterStockError, triggerWaiterSnobbyError } from '../../state/waiter/waiterActions';
-import { waiterStartUpMessages, waiterStockErrorMessages, snobbyRealityCheck } from '../../utils/waiterUtils';
+import { waiterStockErrorMessages, snobbyRealityCheck } from '../../utils/waiterUtils';
 import styles from './MenuContainer.module.scss';
 
 const MenuContainer = ({
@@ -21,7 +21,6 @@ const MenuContainer = ({
   const [currentGuest, setCurrentGuest] = useState(names[0]);
 
   const submitOrderAddition = (food, price, course) => {
-    console.log(food);
     if (stockStore[course][food] > 0) {
       if (snobbyRealityCheck(orders, currentGuest, food)[1]) {
         console.log('hello');
@@ -31,7 +30,6 @@ const MenuContainer = ({
         decreaseStock(food, course);
       }
     } else {
-      console.log(food);
       triggerWaiterStockError(waiterStockErrorMessages(food));
     }
     return true;
@@ -58,8 +56,9 @@ const MenuContainer = ({
         <OrderCardComponent
           orders={orders}
           submitOrderDeletion={submitOrderDeletion}
+          className={styles.orderCardComponent}
         />
-        <WaiterCardComponent messageList={messageList} />
+        <WaiterCardComponent className={styles.waiterCardComponent} messageList={messageList} />
       </div>
     </main>
   );
@@ -80,7 +79,11 @@ MenuContainer.propTypes = {
     desserts: PropTypes.object.isRequired
   }).isRequired,
   addToOrder: PropTypes.func.isRequired,
-  removeFromOrder: PropTypes.func.isRequired
+  removeFromOrder: PropTypes.func.isRequired,
+  increaseStock: PropTypes.func.isRequired,
+  decreaseStock: PropTypes.func.isRequired,
+  triggerWaiterStockError: PropTypes.func.isRequired,
+  triggerWaiterSnobbyError: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({

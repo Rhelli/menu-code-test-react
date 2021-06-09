@@ -21,9 +21,11 @@ export const waiterStockErrorMessages = (item) => {
 };
 
 export const waiterStartupMessage = () => {
-  const message = `${timeOfDayGreeting()[0]} my name is Pierre, and I'll be your waiter this ${timeOfDayGreeting()[1]}.
-  To order, select your name at the top of the menu and make your selections. The first guest's name
-  is selected automatically.`;
+  const message = [
+    `${timeOfDayGreeting()[0]} my name is Pierre, and I'll be your waiter this ${timeOfDayGreeting()[1]}.`,
+    `To order, select your name at the top of the menu and make your selections. The first guest's name
+    is selected automatically.`
+  ];
   return message;
 };
 
@@ -40,3 +42,33 @@ export const snobbyRealityCheck = (orders, guest, selectedFood) => {
   }
   return message;
 };
+
+const randomColor = (number) => {
+  switch (number) {
+    case '0': return {
+      backgroundColor: '#DA3743'
+    };
+
+    case '1': return {
+      backgroundColor: '#DF505B'
+    };
+
+    case '2': return {
+      backgroundColor: '#BF303B'
+    };
+
+    case '3': return {
+      backgroundColor: '#A42932'
+    };
+
+    case '4': return {
+      backgroundColor: '#C34952'
+    };
+
+    default: return {
+      backgroundColor: 'green'
+    };
+  }
+};
+
+export const randomBackgroundColor = () => randomColor((Math.random() * 4).toFixed(0));
