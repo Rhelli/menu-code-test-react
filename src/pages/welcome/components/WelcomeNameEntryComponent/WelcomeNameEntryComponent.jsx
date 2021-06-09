@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import styles from './WelcomeNameEntryComponent.module.scss';
 
 const WelcomeNameEntryComponent = ({ submitNewOrders }) => {
-  const [guest1, setGuest1] = useState(null);
-  const [guest2, setGuest2] = useState(null);
+  const [guest1, setGuest1] = useState('Guest 1');
+  const [guest2, setGuest2] = useState('Guest 2');
 
   return (
     <div className={styles.welcomeNameEntryFormComponent}>

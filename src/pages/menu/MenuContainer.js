@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import MenuNavComponent from './components/MenuNavComponent/MenuNavComponent.jsx';
 import MenuCardComponent from './components/MenuCardComponent/MenuCardComponent.jsx';
 import OrderCardComponent from './components/OrderCardComponent/OrderCardComponent.jsx';
-import { addToOrder, addToSharedOrder, removeFromOrder } from '../../state/orders/orderActions';
+import { addToOrder, removeFromOrder } from '../../state/orders/orderActions';
 import styles from './MenuContainer.module.scss';
 
 const MenuContainer = ({ orderStore, addToOrder, removeFromOrder }) => {
@@ -44,7 +44,7 @@ MenuContainer.propTypes = {
     customerCount: PropTypes.number
   }).isRequired,
   addToOrder: PropTypes.func.isRequired,
-  addToSharedOrder: PropTypes.func.isRequired,
+  removeFromOrder: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({

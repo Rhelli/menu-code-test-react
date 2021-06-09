@@ -9,35 +9,7 @@ const initialState = {
     time: '',
     date: ''
   },
-  orders: {
-    Sam: {
-      color: {
-        backgroundColor: '#D5DBDB'
-      },
-      starters: {
-        food: 'Soup',
-        price: '4'
-      },
-      mains: {},
-      desserts: {}
-    },
-    Tim: {
-      color: {
-        backgroundColor: '#A569BD'
-      },
-      starters: {},
-      mains: {},
-      desserts: {}
-    },
-    Sharing: {
-      color: {
-        backgroundColor: '#37DACE'
-      },
-      starters: {},
-      mains: {},
-      desserts: {}
-    }
-  },
+  orders: {},
   customerCount: 0
 };
 
@@ -92,36 +64,12 @@ const orderReducer = (state = initialState, action) => {
       }
     };
 
-    case ADD_TO_SHARED_ORDER: return {
-      ...state,
-      orders: {
-        ...state.orders,
-        Sharing: {
-          ...state.orders.Sharing,
-          [action.course]: {
-            food: action.food,
-            price: action.price
-          }
-        }
-      }
-    };
-
     case REMOVE_FROM_ORDER: return {
       ...state,
       orders: {
         ...state.orders,
         [action.customer]: {
           ...state.orders[action.customer],
-          [action.course]: {}
-        }
-      }
-    };
-
-    case REMOVE_FROM_SHARED_ORDER: return {
-      ...state,
-      orders: {
-        ...state.orders,
-        Sharing: {
           [action.course]: {}
         }
       }
