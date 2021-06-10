@@ -10,7 +10,7 @@ import { createNewBooking, createNewOrder } from '../../state/orders/orderAction
 import { randomColorGen } from '../../utils/menuUtils';
 import styles from './WelcomeContainer.module.scss';
 
-const WelcomeContainer = ({ createNewBooking, createNewOrder}) => {
+const WelcomeContainer = ({ createNewBooking, createNewOrder }) => {
   const history = useHistory();
   const [pageTurn, setPageTurn] = useState(false);
 
