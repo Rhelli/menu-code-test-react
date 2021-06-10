@@ -2,11 +2,11 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import {
-  orderPointReducer, ordersReducer, stockReducer, waiterReducer
+  ordersReducer, stockReducer, waiterReducer
 } from './index';
+import { loadState } from '../utils/storageUtils';
 
 const rootReducer = combineReducers({
-  orderPointStore: orderPointReducer,
   orderStore: ordersReducer,
   stockStore: stockReducer,
   waiterStore: waiterReducer
@@ -14,6 +14,7 @@ const rootReducer = combineReducers({
 
 const setupStore = () => {
   const middleware = [];
+  const persistedState = loadState();
   if (process.env.NODE_ENV === 'development') {
     const logger = createLogger({ collapsed: true });
     middleware.push(logger);
@@ -22,6 +23,7 @@ const setupStore = () => {
 
   const store = createStore(
     rootReducer,
+    persistedState,
     applyMiddleware(...middleware)
   );
 

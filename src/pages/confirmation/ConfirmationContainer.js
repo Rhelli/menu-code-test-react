@@ -2,19 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DetailsComponent from './components/DetailsComponent/DetailsComponent.jsx';
+import ButtonComponent from './components/ButtonComponent/ButtonComponent.jsx';
 import styles from './ConfirmationContainer.module.scss';
 
-const ConfirmationContainer = ({ orderStore }) => {
-  const { orders, bookings } = orderStore;
-  const names = Object.keys(orders);
-
-  return (
-    <main className={styles.confirmationContainer}>
-      <h1>Your Reservation</h1>
-      <DetailsComponent orderStore={orderStore} />
-    </main>
-  );
-};
+const ConfirmationContainer = ({ orderStore }) => (
+  <main className={styles.confirmationContainer}>
+    <h1>Your Reservation</h1>
+    <DetailsComponent orderStore={orderStore} />
+    <ButtonComponent />
+  </main>
+);
 
 ConfirmationContainer.propTypes = {
   orderStore: PropTypes.shape({

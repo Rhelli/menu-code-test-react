@@ -81,11 +81,6 @@ const DetailsComponent = ({ orderStore }) => {
           </p>
         </div>
       </div>
-      <div className={styles.confirmButton}>
-        <button>
-          Confirm Reservation
-        </button>
-      </div>
     </div>
   );
 };

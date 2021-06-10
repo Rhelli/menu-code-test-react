@@ -45,8 +45,6 @@ const MenuContainer = ({
     increaseStock(food, course);
   };
 
-  console.log(orders);
-
   const checkOrderFinalisation = () => {
     if (checkFinalOrder(orders).length) {
       triggerWaiterMessage(orderCheck(checkFinalOrder(orders)));

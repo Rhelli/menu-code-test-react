@@ -1,0 +1,24 @@
+.confirmButton {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+
+  button {
+    background-color: #da3743;
+    border: none;
+    outline: none;
+    color: #fff;
+    width: 45%;
+    height: 45px;
+    border-radius: 3px;
+    transition-duration: 0.1s;
+    font-size: 16px;
+
+    &:hover {
+      background-color: #A42932;
+      transition-duration: 0.15s;
+    }
+  }
+}
