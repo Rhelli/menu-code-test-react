@@ -17,7 +17,7 @@ const DetailsComponent = ({ orderStore }) => {
           <h5>Party Size</h5>
           <p>
             For
-          {' '}
+            {' '}
             {partySize}
           </p>
         </div>
