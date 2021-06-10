@@ -1,3 +1,8 @@
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+// Generates the sub-menu items (i.e. starter menu, main menu) lists for the MenuCard
+// Accepts foodArray - an array of food object (with name and price), the function fired when the item is selected and the course as a string
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
