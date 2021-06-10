@@ -23,7 +23,7 @@ const CourseMapperComponent = ({ foodArray, onClickFunc, course }) => (
 );
 
 CourseMapperComponent.propTypes = {
-  foodArray: PropTypes.arrayOf(PropTypes.string).isRequired,
+  foodArray: PropTypes.arrayOf(PropTypes.object).isRequired,
   onClickFunc: PropTypes.func.isRequired,
   course: PropTypes.string.isRequired
 };

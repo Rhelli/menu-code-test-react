@@ -57,6 +57,7 @@ const MenuContainer = ({
 
   const checkOrderFinalisation = () => {
     if (checkFinalOrder(orders).length) {
+      console.log('triggered');
       triggerWaiterMessage(orderCheck(checkFinalOrder(orders)));
       return true;
     }

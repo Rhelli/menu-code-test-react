@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
 import CourseMapperComponent from '../../../../common/courseMapperComponent/CourseMapperComponent.jsx';
 import styles from './MenuCardComponent.module.scss';
-import { priceFormatter } from '../../../../utils/menuUtils';
-
 
 const menuData = require('../../../../../menu-data.json');
 

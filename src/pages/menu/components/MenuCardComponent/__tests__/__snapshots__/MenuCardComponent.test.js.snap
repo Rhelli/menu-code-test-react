@@ -5,210 +5,204 @@ exports[`The appearance and functionality of the MenuCardComponent Matches the p
   className="menuCardContainer"
 >
   <div
-    className="startersMenu"
+    className="courseMenu"
   >
     <h3>
       Starters
     </h3>
-    <div>
-      <div
-        className="foodOptionBar"
-        onClick={[Function]}
+    <div
+      className="foodOptionBar"
+      onClick={[Function]}
+    >
+      <p
+        className="foodName"
       >
-        <p
-          className="starterName"
-        >
-          Soup
-        </p>
-        <p
-          className="dessertPrice"
-        >
-          £3.00
-        </p>
-      </div>
-      <div
-        className="foodOptionBar"
-        onClick={[Function]}
+        Soup
+      </p>
+      <p
+        className="foodPrice"
       >
-        <p
-          className="starterName"
-        >
-          Pâté
-        </p>
-        <p
-          className="dessertPrice"
-        >
-          £5.00
-        </p>
-      </div>
-      <div
-        className="foodOptionBar"
-        onClick={[Function]}
+        £3.00
+      </p>
+    </div>
+    <div
+      className="foodOptionBar"
+      onClick={[Function]}
+    >
+      <p
+        className="foodName"
       >
-        <p
-          className="starterName"
-        >
-          Bruschetta
-        </p>
-        <p
-          className="dessertPrice"
-        >
-          £4.50
-        </p>
-      </div>
-      <div
-        className="foodOptionBar"
-        onClick={[Function]}
+        Pâté
+      </p>
+      <p
+        className="foodPrice"
       >
-        <p
-          className="starterName"
-        >
-          Prawn cocktail
-        </p>
-        <p
-          className="dessertPrice"
-        >
-          £6.00
-        </p>
-      </div>
+        £5.00
+      </p>
+    </div>
+    <div
+      className="foodOptionBar"
+      onClick={[Function]}
+    >
+      <p
+        className="foodName"
+      >
+        Bruschetta
+      </p>
+      <p
+        className="foodPrice"
+      >
+        £4.50
+      </p>
+    </div>
+    <div
+      className="foodOptionBar"
+      onClick={[Function]}
+    >
+      <p
+        className="foodName"
+      >
+        Prawn cocktail
+      </p>
+      <p
+        className="foodPrice"
+      >
+        £6.00
+      </p>
     </div>
   </div>
   <div
-    className="mainsMenu"
+    className="courseMenu"
   >
     <h3>
       Mains
     </h3>
-    <div>
-      <div
-        className="foodOptionBar"
-        onClick={[Function]}
+    <div
+      className="foodOptionBar"
+      onClick={[Function]}
+    >
+      <p
+        className="foodName"
       >
-        <p
-          className="mainName"
-        >
-          Steak
-        </p>
-        <p
-          className="dessertPrice"
-        >
-          £18.00
-        </p>
-      </div>
-      <div
-        className="foodOptionBar"
-        onClick={[Function]}
+        Steak
+      </p>
+      <p
+        className="foodPrice"
       >
-        <p
-          className="mainName"
-        >
-          Meatballs
-        </p>
-        <p
-          className="dessertPrice"
-        >
-          £11.50
-        </p>
-      </div>
-      <div
-        className="foodOptionBar"
-        onClick={[Function]}
+        £18.00
+      </p>
+    </div>
+    <div
+      className="foodOptionBar"
+      onClick={[Function]}
+    >
+      <p
+        className="foodName"
       >
-        <p
-          className="mainName"
-        >
-          Salmon fillet
-        </p>
-        <p
-          className="dessertPrice"
-        >
-          £14.00
-        </p>
-      </div>
-      <div
-        className="foodOptionBar"
-        onClick={[Function]}
+        Meatballs
+      </p>
+      <p
+        className="foodPrice"
       >
-        <p
-          className="mainName"
-        >
-          Vegetarian lasagna
-        </p>
-        <p
-          className="dessertPrice"
-        >
-          £12.00
-        </p>
-      </div>
+        £11.50
+      </p>
+    </div>
+    <div
+      className="foodOptionBar"
+      onClick={[Function]}
+    >
+      <p
+        className="foodName"
+      >
+        Salmon fillet
+      </p>
+      <p
+        className="foodPrice"
+      >
+        £14.00
+      </p>
+    </div>
+    <div
+      className="foodOptionBar"
+      onClick={[Function]}
+    >
+      <p
+        className="foodName"
+      >
+        Vegetarian lasagna
+      </p>
+      <p
+        className="foodPrice"
+      >
+        £12.00
+      </p>
     </div>
   </div>
   <div
-    className="dessertsMenu"
+    className="courseMenu"
   >
     <h3>
       Desserts
     </h3>
-    <div>
-      <div
-        className="foodOptionBar"
-        onClick={[Function]}
+    <div
+      className="foodOptionBar"
+      onClick={[Function]}
+    >
+      <p
+        className="foodName"
       >
-        <p
-          className="dessertName"
-        >
-          Sticky toffee
-        </p>
-        <p
-          className="dessertPrice"
-        >
-          £18.00
-        </p>
-      </div>
-      <div
-        className="foodOptionBar"
-        onClick={[Function]}
+        Sticky toffee
+      </p>
+      <p
+        className="foodPrice"
       >
-        <p
-          className="dessertName"
-        >
-          Tiramisu
-        </p>
-        <p
-          className="dessertPrice"
-        >
-          £4.50
-        </p>
-      </div>
-      <div
-        className="foodOptionBar"
-        onClick={[Function]}
+        £18.00
+      </p>
+    </div>
+    <div
+      className="foodOptionBar"
+      onClick={[Function]}
+    >
+      <p
+        className="foodName"
       >
-        <p
-          className="dessertName"
-        >
-          Cheesecake
-        </p>
-        <p
-          className="dessertPrice"
-        >
-          £4.00
-        </p>
-      </div>
-      <div
-        className="foodOptionBar"
-        onClick={[Function]}
+        Tiramisu
+      </p>
+      <p
+        className="foodPrice"
       >
-        <p
-          className="dessertName"
-        >
-          Ice cream
-        </p>
-        <p
-          className="dessertPrice"
-        >
-          £3.50
-        </p>
-      </div>
+        £4.50
+      </p>
+    </div>
+    <div
+      className="foodOptionBar"
+      onClick={[Function]}
+    >
+      <p
+        className="foodName"
+      >
+        Cheesecake
+      </p>
+      <p
+        className="foodPrice"
+      >
+        £4.00
+      </p>
+    </div>
+    <div
+      className="foodOptionBar"
+      onClick={[Function]}
+    >
+      <p
+        className="foodName"
+      >
+        Ice cream
+      </p>
+      <p
+        className="foodPrice"
+      >
+        £3.50
+      </p>
     </div>
   </div>
 </div>
