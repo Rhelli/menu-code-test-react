@@ -1,3 +1,9 @@
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+// ConfirmationContainer displays the DetailsComponent and the ButtonComponent
+//  - DetailsComponent - functionally very similar to the OrderCardComponent, but with different styling
+//  - ButtonComponent - It's own component due to the implications of what it would do if hooked up to anything. Slightly excessive currently.
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';

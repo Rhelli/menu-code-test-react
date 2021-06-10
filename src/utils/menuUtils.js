@@ -152,3 +152,9 @@ export const checkFinalOrder = (orders) => {
   });
   return blame;
 };
+
+export const titlelise = string => {
+  const first = string.charAt(0).toUpperCase();
+  const last = string.slice(1);
+  return first + last;
+};

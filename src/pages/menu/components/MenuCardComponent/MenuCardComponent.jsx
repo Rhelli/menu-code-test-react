@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
+import CourseMapperComponent from '../../../../common/courseMapperComponent/CourseMapperComponent.jsx';
 import styles from './MenuCardComponent.module.scss';
 import { priceFormatter } from '../../../../utils/menuUtils';
+
 
 const menuData = require('../../../../../menu-data.json');
 
@@ -11,59 +13,21 @@ const MenuCardComponent = ({ submitOrderAddition }) => {
 
   return (
     <div className={styles.menuCardContainer}>
-      <div className={styles.startersMenu}>
-        <h3>Starters</h3>
-        <div>
-          {
-            starters.map((start) => (
-              <div
-                className={styles.foodOptionBar}
-                key={uuidv4()}
-                onClick={() => submitOrderAddition(start.name, start.price, 'starters')}
-              >
-                <p className={styles.starterName}>{start.name}</p>
-                <p className={styles.dessertPrice}>{priceFormatter(start.price)}</p>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-      <div className={styles.mainsMenu}>
-        <h3>Mains</h3>
-        <div>
-          {
-            mains.map((main) => (
-              <div
-                className={styles.foodOptionBar}
-                key={uuidv4()}
-                onClick={() => submitOrderAddition(main.name, main.price, 'mains')}
-              >
-                <p className={styles.mainName}>
-                  {main.name}
-                </p>
-                <p className={styles.dessertPrice}>{priceFormatter(main.price)}</p>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-      <div className={styles.dessertsMenu}>
-        <h3>Desserts</h3>
-        <div>
-          {
-            desserts.map((dessert) => (
-              <div
-                className={styles.foodOptionBar}
-                key={uuidv4()}
-                onClick={() => submitOrderAddition(dessert.name, dessert.price, 'desserts')}
-              >
-                <p className={styles.dessertName}>{dessert.name}</p>
-                <p className={styles.dessertPrice}>{priceFormatter(dessert.price)}</p>
-              </div>
-            ))
-          }
-        </div>
-      </div>
+      <CourseMapperComponent
+        foodArray={starters}
+        onClickFunc={submitOrderAddition}
+        course='starters'
+      />
+      <CourseMapperComponent
+        foodArray={mains}
+        onClickFunc={submitOrderAddition}
+        course='mains'
+      />
+      <CourseMapperComponent
+        foodArray={desserts}
+        onClickFunc={submitOrderAddition}
+        course='desserts'
+      />
     </div>
   );
 };

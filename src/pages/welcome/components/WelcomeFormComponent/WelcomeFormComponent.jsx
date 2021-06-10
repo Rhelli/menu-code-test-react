@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import DatePicker from 'react-date-picker';
 import times from '../../../../utils/welcomeUtils';
-
 import styles from './WelcomeFormComponent.module.scss';
 
 const WelcomeFormComponent = ({ submitNewBooking }) => {

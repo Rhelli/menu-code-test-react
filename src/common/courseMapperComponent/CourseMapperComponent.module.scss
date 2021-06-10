@@ -1,0 +1,36 @@
+.courseMenu {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  height: auto;
+  padding: 10px 0 30px 0;
+  border-bottom: 1px solid #d8d9db;
+  transition-duration: 0.2s;
+  border-radius: 6px;
+
+  h3 {
+    padding: 10px 15px 20px 15px;
+  }
+  
+  .foodOptionBar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 100%;
+    padding: 10px 15px;
+
+    .foodName {
+      font-size: 14px;
+    }
+
+    .foodPrice {
+      font-size: 14px;
+      margin-left: auto;
+    }
+
+    &:hover {
+      background-color: rgba(218, 55, 67, 0.1);
+      transition-duration: 0.2s;
+    }
+  }
+}

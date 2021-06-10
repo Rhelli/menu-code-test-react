@@ -1,3 +1,13 @@
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------
+// The WelcomeContainer displays the WelcomeInformationComponent, WelcomeFormComponent, WelcomeNameEntryComponent and WelcomeDescriptionComponent
+// - WelcomeInformationComponent - OpenTable style rating, cuisine and price information
+// - WelcomeFormComponent - User input for time, date and party size (which is fixed at 2)
+// - WelcomeDescriptionComponent - OpenTable style expandable restaurant information
+// Crucial Functions include
+// - submitNewBooking() - Resets booking object, persisted state (prevents duplicate name bugs when navigating back and forwards), creates new booking object
+// - submitNewOrders() - Creates new order object for user and assigns randomly selected color for id purposes
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -49,7 +59,8 @@ const WelcomeContainer = ({ createNewBooking, createNewOrder, resetOrder }) => {
 
 WelcomeContainer.propTypes = {
   createNewBooking: PropTypes.func.isRequired,
-  createNewOrder: PropTypes.func.isRequired
+  createNewOrder: PropTypes.func.isRequired,
+  resetOrder: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({
