@@ -19,3 +19,12 @@ export const saveState = (state) => {
     throw new Error(err);
   }
 };
+
+export const clearState = () => {
+  try {
+    const serializedState = '';
+    localStorage.setItem('state', serializedState); 
+  } catch (err) {
+    throw new Error(err);
+  }
+};
