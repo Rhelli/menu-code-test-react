@@ -24,6 +24,8 @@ const MenuContainer = ({
   const history = useHistory();
   const [currentGuest, setCurrentGuest] = useState(names[0]);
 
+  console.log(orderStore);
+
   const submitOrderAddition = (food, price, course) => {
     if (stockStore[course][food] > 0) {
       if (snobbyRealityCheck(orders, currentGuest, food)[1]) {
@@ -97,7 +99,7 @@ MenuContainer.propTypes = {
   removeFromOrder: PropTypes.func.isRequired,
   increaseStock: PropTypes.func.isRequired,
   decreaseStock: PropTypes.func.isRequired,
-  triggerWaiterMessage: PropTypes.func.isRequired,
+  triggerWaiterMessage: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
