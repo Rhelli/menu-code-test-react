@@ -25,7 +25,7 @@ ConfirmationContainer.propTypes = {
       date: PropTypes.string.isRequired,
       time: PropTypes.string.isRequired,
       partySize: PropTypes.number.isRequired
-    }).isRequired,
+    }),
     orders: PropTypes.object.isRequired
   }).isRequired
 };
