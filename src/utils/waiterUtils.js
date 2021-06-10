@@ -15,7 +15,7 @@ const timeOfDayGreeting = () => {
 export const waiterStockErrorMessages = (item) => {
   let message = '';
   if (item) {
-    message = `Terribly sorry sir, we're all out of the ${item}. Please make another selection.`;
+    message = `Terribly sorry, we're all out of the ${item}. Please make another selection.`;
   }
   return message;
 };
@@ -32,11 +32,11 @@ export const waiterStartupMessage = () => {
 export const snobbyRealityCheck = (orders, guest, selectedFood) => {
   let message = '';
   if (orders[guest].starters.food === 'Prawn cocktail' && selectedFood === 'Salmon fillet') {
-    message = [`*snorts* Sir, I urge you to choose a better suited main course to complement
-    your starters. Unless you're a pescatarian, I'd suggest selecting something else.`, true];
+    message = [`*snorts* I urge you to choose a better suited main course to complement
+    your starters. Unless you're a pescatarian or a philanderer, I'd suggest selecting something else.`, true];
   }
   if (orders[guest].mains.food === 'Salmon fillet' && selectedFood === 'Prawn cocktail') {
-    message = [`*sighs* Sir, if everyone of our guests stooped to making such derivative selections
+    message = [`*sighs* If everyone of our guests stooped to making such derivative selections
     as you, we'd be a fast food chain. Please select a starter other than the Prawn cocktail to complement
     your ...tastes.`, true];
   }

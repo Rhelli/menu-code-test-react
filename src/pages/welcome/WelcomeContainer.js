@@ -11,7 +11,7 @@ import { randomColorGen } from '../../utils/menuUtils';
 import { clearState } from '../../utils/storageUtils';
 import styles from './WelcomeContainer.module.scss';
 
-const WelcomeContainer = ({ createNewBooking, createNewOrder }) => {
+const WelcomeContainer = ({ createNewBooking, createNewOrder, resetOrder }) => {
   const history = useHistory();
   const [pageTurn, setPageTurn] = useState(false);
 

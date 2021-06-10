@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The appearance and functionality of the WelcomeNameEntryComponent Matches the previous snapshot 1`] = `
+<div
+  className="welcomeNameEntryFormComponent"
+>
+  <h3>
+    Enter Guest Names
+  </h3>
+  <form
+    className="nameEntryForm"
+    onSubmit={[Function]}
+  >
+    <div
+      className="nameEntry"
+      onChange={[Function]}
+    >
+      <label>
+        <h4>
+          Guest One's Name
+        </h4>
+        <input
+          id="guest1"
+          placeholder="Optional"
+          type="text"
+        />
+      </label>
+    </div>
+    <div
+      className="nameEntry"
+      onChange={[Function]}
+    >
+      <label>
+        <h4>
+          Guest Two's Name
+        </h4>
+        <input
+          id="guest2"
+          placeholder="Optional"
+          type="text"
+        />
+      </label>
+    </div>
+    <button
+      className="nameEntryButton"
+      type="submit"
+    >
+      Continue
+    </button>
+  </form>
+</div>
+`;
