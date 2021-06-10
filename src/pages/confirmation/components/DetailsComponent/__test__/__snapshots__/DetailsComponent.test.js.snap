@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The appearance and functionality of the DetailsComponent Matches the previous snapshot taken 1`] = `
+<div
+  className="detailsContainer"
+>
+  <div
+    className="bookingDetails"
+  >
+    <div>
+      <h5>
+        Party Size
+      </h5>
+      <p>
+        For
+         
+        2
+      </p>
+    </div>
+    <div>
+      <h5>
+        Time
+      </h5>
+      <p>
+        12:00
+      </p>
+    </div>
+    <div>
+      <h5>
+        Date
+      </h5>
+      <p>
+        Thursday, 10th June
+      </p>
+    </div>
+  </div>
+  <h3>
+    Your Orders
+  </h3>
+  <div
+    className="orderList"
+  >
+    <div>
+      <div
+        className="guestOrder"
+      >
+        <h5>
+          Sam
+        </h5>
+        <div
+          className="orderItem"
+        >
+          <p>
+            Lambas Bread
+          </p>
+          <p
+            className="price"
+          >
+            £5.00
+          </p>
+        </div>
+        <div
+          className="orderItem"
+        >
+          <p>
+            Taters
+          </p>
+          <p
+            className="price"
+          >
+            £11.00
+          </p>
+        </div>
+        <div
+          className="individualTotal"
+        >
+          <p>
+            Sam
+            's
+             
+            total:
+          </p>
+          <p
+            className="total"
+          >
+            £16.00
+          </p>
+        </div>
+      </div>
+      <div
+        className="guestOrder"
+      >
+        <h5>
+          Frodo
+        </h5>
+        <div
+          className="orderItem"
+        >
+          <p>
+            Lambas Bread
+          </p>
+          <p
+            className="price"
+          >
+            £5.00
+          </p>
+        </div>
+        <div
+          className="orderItem"
+        >
+          <p>
+            Second Breakfast
+          </p>
+          <p
+            className="price"
+          >
+            £13.00
+          </p>
+        </div>
+        <div
+          className="individualTotal"
+        >
+          <p>
+            Frodo
+            's
+             
+            total:
+          </p>
+          <p
+            className="total"
+          >
+            £18.00
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="grandTotalContainer"
+    >
+      <p>
+        Grand Total:
+      </p>
+      <p
+        className="grandPrice"
+      >
+        £34.00
+      </p>
+    </div>
+  </div>
+</div>
+`;

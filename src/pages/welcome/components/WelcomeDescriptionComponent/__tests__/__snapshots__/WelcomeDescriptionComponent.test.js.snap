@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The appearance and functionality of the WelcomeDescriptionComponent Matches the previous snapshot of the WelcomeDescriptionComponent 1`] = `
+<div
+  className="description"
+>
+  <p>
+    The Chez Paree is the quintessential French dining experience, in the center of London's busy Soho. With a well earned Michelin star behind Jean-Luc Picard's Parisian gem, the 
+    <i>
+      Chez Paree
+    </i>
+     is been critically acclaimed by numerous high-flyer critiques and restaurant-goers alike.
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    + Read More
+  </button>
+</div>
+`;

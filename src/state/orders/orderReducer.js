@@ -1,5 +1,5 @@
 import {
-  CREATE_NEW_BOOKING, CREATE_NEW_ORDER, CREATE_NEW_SHARED_ORDER, ADD_TO_ORDER,
+  CREATE_NEW_BOOKING, CREATE_NEW_ORDER, ADD_TO_ORDER,
   REMOVE_FROM_ORDER, RESET_ORDER
 } from './orderTypes';
 
@@ -70,19 +70,6 @@ const orderReducer = (state = tempInitial, action) => {
       orders: {
         ...state.orders,
         [action.name]: {
-          color: action.color,
-          starters: {},
-          mains: {},
-          desserts: {}
-        }
-      }
-    };
-
-    case CREATE_NEW_SHARED_ORDER: return {
-      ...state,
-      orders: {
-        ...state.orders,
-        Sharing: {
           color: action.color,
           starters: {},
           mains: {},

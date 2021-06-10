@@ -6,16 +6,19 @@ import WelcomeInformationComponent from './components/WelcomeInformationComponen
 import WelcomeFormComponent from './components/WelcomeFormComponent/WelcomeFormComponent.jsx';
 import WelcomeDescriptionComponent from './components/WelcomeDescriptionComponent/WelcomeDescriptionComponent.jsx';
 import WelcomeNameEntryComponent from './components/WelcomeNameEntryComponent/WelcomeNameEntryComponent.jsx';
-import { createNewBooking, createNewOrder } from '../../state/orders/orderActions';
+import { createNewBooking, createNewOrder, resetOrder } from '../../state/orders/orderActions';
 import { randomColorGen } from '../../utils/menuUtils';
+import { clearState } from '../../utils/storageUtils';
 import styles from './WelcomeContainer.module.scss';
 
-const WelcomeContainer = ({ createNewBooking, createNewOrder }) => {
+const WelcomeContainer = ({ createNewBooking, createNewOrder, resetOrder }) => {
   const history = useHistory();
   const [pageTurn, setPageTurn] = useState(false);
 
   const submitNewBooking = (event, partySize, date, time) => {
     event.preventDefault();
+    resetOrder();
+    clearState();
     createNewBooking(partySize, date, time);
     setPageTurn(true);
     return true;
@@ -51,7 +54,8 @@ WelcomeContainer.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   createNewBooking: (partySize, date, time) => dispatch(createNewBooking(partySize, date, time)),
-  createNewOrder: (name, color) => dispatch(createNewOrder(name, color))
+  createNewOrder: (name, color) => dispatch(createNewOrder(name, color)),
+  resetOrder: () => dispatch(resetOrder())
 });
 
 export default connect(null, mapDispatchToProps)(WelcomeContainer);

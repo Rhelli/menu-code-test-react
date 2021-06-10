@@ -7,9 +7,9 @@ import ConfirmationContainer from './pages/confirmation/ConfirmationContainer';
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/welcome" component={WelcomeContainer} />
+      <Route exact path="/" component={WelcomeContainer} />
       <Route exact path="/menu" component={MenuContainer} />
-      <Route exact path="/" component={ConfirmationContainer} />
+      <Route exact path="/confirmation" component={ConfirmationContainer} />
     </Switch>
   </BrowserRouter>
 );
