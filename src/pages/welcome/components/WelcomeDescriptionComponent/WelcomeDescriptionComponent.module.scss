@@ -1,6 +1,7 @@
 .description,
 .descriptionFull {
   width: 100%;
+
   p {
     margin-top: 20px;
     width: 100%;
@@ -33,7 +34,6 @@
 
 .descriptionFull {
   p {
-    height: -webkit-fill-available;
     overflow: unset;
     white-space: normal;
     text-overflow: unset;

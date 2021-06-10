@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import renderer from 'react-test-renderer';
-import Enzyme, { mount } from 'enzyme';
+import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MenuCardComponent from '../MenuCardComponent';
 

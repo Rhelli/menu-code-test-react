@@ -13,11 +13,11 @@
       flex-grow: 1;
       height: auto;
       padding: 10px 0;
-  
+
       h5 {
         font-size: 16px;
       }
-  
+
       p {
         padding: 10px 0;
         border-bottom: 1px solid #d8d9db;
@@ -26,7 +26,6 @@
   }
 
   .orderList {
-    
     .guestOrder {
       display: flex;
       flex-flow: column nowrap;

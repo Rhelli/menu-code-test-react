@@ -14,7 +14,7 @@ const orders = {
     },
     starters: {},
     mains: {},
-    desserts: {},
+    desserts: {}
   },
   Frodo: {
     color: {

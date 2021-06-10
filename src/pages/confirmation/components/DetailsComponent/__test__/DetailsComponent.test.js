@@ -43,7 +43,7 @@ const orderStore = {
       desserts: {}
     }
   }
-}
+};
 
 const detailsComponent = (<DetailsComponent orderStore={orderStore} />);
 
