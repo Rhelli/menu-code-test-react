@@ -29,12 +29,3 @@
     font-weight: 400;
     font-style: italic;
 }
-
-@font-face {
-    font-family: 'Brandon Text';
-    src: url('BrandonText-Thin.woff2') format('woff2'),
-        url('BrandonText-Thin.woff') format('woff');
-    font-weight: 100;
-    font-style: normal;
-}
-

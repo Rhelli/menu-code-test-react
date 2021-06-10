@@ -12,7 +12,6 @@ const initializeStore = () => {
   newStore.subscribe(throttle(() => {
     saveState({
       orderStore: newStore.getState().orderStore,
-      waiterStore: newStore.getState().waiterStore,
       stockStore: newStore.getState().stockStore
     });
   }, 1000));

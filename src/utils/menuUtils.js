@@ -1,3 +1,5 @@
+// Generates the menu object for the initial state of the stockReducer.
+// Maps the menuData and gives each food a stockCount. Gives one chosen item (lowStockItem) a stock of 1
 export const menuGen = (menuData, stockCount, lowStockItem) => {
   const menu = {
     starters: {},
@@ -77,6 +79,7 @@ const randomColorClass = (number) => {
   }
 };
 
+// Random color gen for users on startup
 export const randomColorGen = (number) => {
   let color;
   if (number) {
@@ -87,6 +90,7 @@ export const randomColorGen = (number) => {
   return color;
 };
 
+// Extracts the total of all of the food items a user has in their order object
 export const extractSubTotal = (orders, name) => {
   let subTotal = 0;
   if (orders) {
@@ -100,6 +104,7 @@ export const extractSubTotal = (orders, name) => {
   return `£${subTotal.toFixed(2)}`;
 };
 
+// Extracts the total from all food items
 export const extractGrandTotal = (orders) => {
   let grandTotal = 0;
   if (orders) {
@@ -117,6 +122,8 @@ export const extractGrandTotal = (orders) => {
   return `£${grandTotal.toFixed(2)}`;
 };
 
+// Extracts a users selected foods and their prices, bundles them as an array
+// along with the users name for reference.
 export const extractOrderDetails = (orders, name) => {
   const foodItem = [];
   const keys = Object.keys(orders[name]);
@@ -131,6 +138,8 @@ export const extractOrderDetails = (orders, name) => {
   return foodItem;
 };
 
+// Checks users orders for a main and a starter/dessert
+// Returns an array of users who don't comply.
 export const checkFinalOrder = (orders) => {
   const blame = [];
   Object.keys(orders).map((name) => {
@@ -149,6 +158,13 @@ export const checkFinalOrder = (orders) => {
     if (count === 0) {
       blame.push(name);
     }
+    return true;
   });
   return blame;
+};
+
+export const titlelise = string => {
+  const first = string.charAt(0).toUpperCase();
+  const last = string.slice(1);
+  return first + last;
 };

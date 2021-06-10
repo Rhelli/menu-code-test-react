@@ -1,4 +1,3 @@
-/* eslint-disable no-else-return */
 import React from 'react';
 import { pure } from 'recompose';
 import PropTypes from 'prop-types';
@@ -16,13 +15,12 @@ const WaiterCardComponent = pure(({ messageList }) => (
               <p>{message}</p>
             </div>
           );
-        } else {
-          return (
-            <div className={styles.waiterMessage} style={randomBackgroundColor()} key={uuidv4()}>
-              <p>{message}</p>
-            </div>
-          );
         }
+        return (
+          <div className={styles.waiterMessage} style={randomBackgroundColor()} key={uuidv4()}>
+            <p>{message}</p>
+          </div>
+        );
       })
     }
   </div>

@@ -1,3 +1,15 @@
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+// MenuContainer displays the menuNavComponent, menuCard, orderCardComponent and the waiterCardComponent
+// - MenuContainer - Displays a list of selectable food items generated from provided menuData.json
+// - MenuNavComponent - Title and user buttons for choosing who is ordering
+// - OrderCardComponent - Displays what users have selected, individual totals and grand total
+// - WaiterCardComponent - Displays messages to the user depending on errors or alerts triggered by ordering restrictions (or waiter opinion)
+// Crucial Functions
+// - submitOrderAddition() - checks if food is in stock, checks if food pleases Pierre, the snobby waiter. Dispatches order and decreases stock if fine.
+// - submitOrderDeletion() - Self explanatory. Reverse of addition.
+// - checkOrderFinalisation() - checks guests have at least 1 main and a starter or dessert.
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -24,8 +36,6 @@ const MenuContainer = ({
   const history = useHistory();
   const [currentGuest, setCurrentGuest] = useState(names[0]);
 
-  console.log(orderStore);
-
   const submitOrderAddition = (food, price, course) => {
     if (stockStore[course][food] > 0) {
       if (snobbyRealityCheck(orders, currentGuest, food)[1]) {
@@ -47,6 +57,7 @@ const MenuContainer = ({
 
   const checkOrderFinalisation = () => {
     if (checkFinalOrder(orders).length) {
+      console.log('triggered');
       triggerWaiterMessage(orderCheck(checkFinalOrder(orders)));
       return true;
     }

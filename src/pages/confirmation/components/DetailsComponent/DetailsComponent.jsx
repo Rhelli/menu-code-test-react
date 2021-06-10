@@ -86,9 +86,15 @@ const DetailsComponent = ({ orderStore }) => {
 };
 
 DetailsComponent.propTypes = {
-  orders: PropTypes.object,
-  names: PropTypes.arrayOf(PropTypes.string),
-  booking: PropTypes.object
+  orderStore: PropTypes.shape({
+    orders: PropTypes.object,
+    names: PropTypes.arrayOf(PropTypes.string),
+    booking: PropTypes.shape({
+      partySize: PropTypes.number.isRequired,
+      time: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired
+    })
+  }).isRequired
 };
 
 export default DetailsComponent;

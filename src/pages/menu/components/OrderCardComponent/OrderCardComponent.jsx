@@ -32,22 +32,12 @@ const OrderCardComponent = ({ orders, submitOrderDeletion }) => {
               ))
             }
             <div className={styles.individualTotal}>
-            {
-              name !== 'Sharing' ? (
-                <p>
-                  {name}
-                  &apos;s
-                  {' '}
-                  total:
-                </p>
-              ) : (
-                <p>
-                  {name}
-                  {' '}
-                  total:
-                </p>
-              )
-            }
+              <p>
+                {name}
+                &apos;s
+                {' '}
+                total:
+              </p>
               <p className={styles.total}>
                 {extractSubTotal(orders, name)}
               </p>

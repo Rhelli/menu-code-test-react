@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import DatePicker from 'react-date-picker';
 import times from '../../../../utils/welcomeUtils';
-
 import styles from './WelcomeFormComponent.module.scss';
 
 const WelcomeFormComponent = ({ submitNewBooking }) => {
   const [partySize, changePartySize] = useState(2);
   const [date, changeDate] = useState(new Date());
-  const [time, changeTime] = useState('12:00');
+  const [time, changeTime] = useState('12:00pm');
 
   return (
     <div className={styles.welcomeFormComponent}>
@@ -40,8 +39,8 @@ const WelcomeFormComponent = ({ submitNewBooking }) => {
             <p>Time</p>
             <select id="time" name="time" required>
               {
-                times.map((time) => (
-                  <option key={uuidv4()} value={time}>
+                times.map((timePeriod) => (
+                  <option key={uuidv4()} value={timePeriod}>
                     {time}
                   </option>
                 ))
