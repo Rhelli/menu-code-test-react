@@ -81,6 +81,11 @@ This promotes a cleaner, more compartmentalised structure. Downside is it is dif
         │       └── userReducer.js
         └── utils
             └── authUtils.js
+
+## Design
+I designed and built this project as if it were to become a new feature for OpenTable. The design elements are lifted from OpenTable's own.
+
+An additional important caveat here is that the project is not responsive. Given an appropriate amount of time, enabled a responsive experience would be no bother, as the application itself is designed a composed in a modular way, meaning all that needs to happen, is rearranging of the page components order.
     
 
 ## Architecture
@@ -244,4 +249,7 @@ There are a number of commands that can be executed on the command line to inter
 
 # Preview Video
    <p align="center">
-<a href="screens/menu.png"><img src="screens/menu.png" alt="menu page" width="600" height="auto"></a></p>
+<a href="screens/preview.gif"><img src="screens/preview.gif" alt="preview video" width="600" height="auto"></a></p>
+
+# Creator
+Rory Hellier -[Github](https://github.com/Rhelli)

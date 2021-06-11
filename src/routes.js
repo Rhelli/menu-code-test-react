@@ -5,11 +5,11 @@ import MenuContainer from './pages/menu/MenuContainer';
 import ConfirmationContainer from './pages/confirmation/ConfirmationContainer';
 
 const Routes = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/public/webpack/index.html">
     <Switch>
       <Route exact path="/" component={WelcomeContainer} />
-      <Route exact path="/menu" component={MenuContainer} />
-      <Route exact path="/confirmation" component={ConfirmationContainer} />
+      <Route path="/menu" component={MenuContainer} />
+      <Route path="/confirmation" component={ConfirmationContainer} />
     </Switch>
   </BrowserRouter>
 );
