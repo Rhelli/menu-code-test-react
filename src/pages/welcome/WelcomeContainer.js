@@ -17,17 +17,19 @@ import WelcomeFormComponent from './components/WelcomeFormComponent/WelcomeFormC
 import WelcomeDescriptionComponent from './components/WelcomeDescriptionComponent/WelcomeDescriptionComponent.jsx';
 import WelcomeNameEntryComponent from './components/WelcomeNameEntryComponent/WelcomeNameEntryComponent.jsx';
 import { createNewBooking, createNewOrder, resetOrder } from '../../state/orders/orderActions';
+import { resetStock } from '../../state/stock/stockActions';
 import { randomColorGen } from '../../utils/menuUtils';
 import { clearState } from '../../utils/storageUtils';
 import styles from './WelcomeContainer.module.scss';
 
-const WelcomeContainer = ({ createNewBooking, createNewOrder, resetOrder }) => {
+const WelcomeContainer = ({ createNewBooking, createNewOrder, resetOrder, resetStock }) => {
   const history = useHistory();
   const [pageTurn, setPageTurn] = useState(false);
 
   const submitNewBooking = (event, partySize, date, time) => {
     event.preventDefault();
     resetOrder();
+    resetStock();
     clearState();
     createNewBooking(partySize, date, time);
     setPageTurn(true);
@@ -60,13 +62,15 @@ const WelcomeContainer = ({ createNewBooking, createNewOrder, resetOrder }) => {
 WelcomeContainer.propTypes = {
   createNewBooking: PropTypes.func.isRequired,
   createNewOrder: PropTypes.func.isRequired,
-  resetOrder: PropTypes.func.isRequired
+  resetOrder: PropTypes.func.isRequired,
+  resetStock: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({
   createNewBooking: (partySize, date, time) => dispatch(createNewBooking(partySize, date, time)),
   createNewOrder: (name, color) => dispatch(createNewOrder(name, color)),
-  resetOrder: () => dispatch(resetOrder())
+  resetOrder: () => dispatch(resetOrder()),
+  resetStock: () => dispatch(resetStock())
 });
 
 export default connect(null, mapDispatchToProps)(WelcomeContainer);

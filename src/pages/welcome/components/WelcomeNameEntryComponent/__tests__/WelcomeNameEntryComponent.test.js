@@ -29,5 +29,5 @@ describe('The appearance and functionality of the WelcomeNameEntryComponent', ()
   it('Contains two entry points for names', () => {
     expect(container.find('#guest1')).toBeTruthy();
     expect(container.find('#guest2')).toBeTruthy();
-  })
-})
+  });
+});

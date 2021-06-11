@@ -40,8 +40,8 @@ const WelcomeFormComponent = ({ submitNewBooking }) => {
             <select id="time" name="time" required>
               {
                 times.map((timePeriod) => (
-                  <option key={uuidv4()} value={timePeriod}>
-                    {time}
+                  <option key={uuidv4()} value={timePeriod} selected={time === timePeriod ? 'selected' : null}>
+                    {timePeriod}
                   </option>
                 ))
               }

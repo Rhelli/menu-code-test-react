@@ -58,8 +58,10 @@ describe('The appearance and functionality of the OrderCardComponent', () => {
   });
 
   it("Renders each guests' ordered food and formatted price to their own lists", () => {
-    expect(container.find('.orderList').childAt(0).childAt(1).childAt(0).text()).toBe('Lambas Bread');
-    expect(container.find('.orderList').childAt(0).childAt(1).childAt(1).text()).toBe('£5.00');
+    expect(container.find('.orderList').childAt(0).childAt(1).childAt(0)
+      .text()).toBe('Lambas Bread');
+    expect(container.find('.orderList').childAt(0).childAt(1).childAt(1)
+      .text()).toBe('£5.00');
   });
 
   it('Displays a total for each users order', () => {

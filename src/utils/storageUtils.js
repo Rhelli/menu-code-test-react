@@ -23,6 +23,7 @@ export const clearState = () => {
   try {
     const serializedState = {};
     localStorage.setItem('state', serializedState);
+    localStorage.clear();
   } catch (err) {
     throw new Error(err);
   }

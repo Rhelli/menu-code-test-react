@@ -19,26 +19,27 @@
     border-radius: 4px;
     color: #fff;
   }
+
   .previousButton {
-    background-color: #DA3743;
-    border-bottom: 2px solid #A42932;
+    background-color: #da3743;
+    border-bottom: 2px solid #a42932;
     transition-duration: 0.1s;
 
     &:hover {
-      background-color: #BF303B;
-      border-bottom: 1px solid #88222A;
+      background-color: #bf303b;
+      border-bottom: 1px solid #88222a;
       transition-duration: 0.1s;
     }
   }
 
   .nextButton {
-    background-color: #8BC34A;
+    background-color: #8bc34a;
     border-bottom: 2px solid #689238;
     transition-duration: 0.1s;
 
     &:hover {
-      background-color: #7AAB41;
-      border-bottom: 1px solid #577A2E;
+      background-color: #7aab41;
+      border-bottom: 1px solid #577a2e;
       transition-duration: 0.1s;
     }
   }

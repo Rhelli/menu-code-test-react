@@ -2,7 +2,11 @@
   "name": "ot-menu-test",
   "version": "1.0.0",
   "description": "A small scaffold application for building ot-menu",
-  "main": "index.js",
+  "main": "App.js",
+  "homepage": ".",
+  "engines": {
+    "node": "10.19.0"
+  },
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
     "test": "react-scripts test --silent",

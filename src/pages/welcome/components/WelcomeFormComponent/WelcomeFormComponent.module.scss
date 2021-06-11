@@ -37,7 +37,7 @@
 
         div {
           width: 100%;
-          
+
           button {
             &:hover,
             &:active,
@@ -61,7 +61,7 @@
       }
 
       .datePickerCalendar {
-        background-color: #F9EBEA;
+        background-color: #f9ebea;
         border-radius: 4px;
       }
 
@@ -135,21 +135,6 @@
         text-decoration: underline;
         cursor: pointer;
       }
-    }
-  }
-
-  .description {
-    p {
-      height: 30px;
-    }
-  }
-
-  .descriptionFull {
-    p {
-      height: -webkit-fill-available;
-      overflow: unset;
-      white-space: normal;
-      text-overflow: unset;
     }
   }
 }
