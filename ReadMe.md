@@ -1,19 +1,17 @@
 # OpenTable Front-End Coding Challenge
 
 ## Table of Contents
-  - [The Project Brief](https://github.com/Rhelli/thrive.io-frontend#-the-project-brief)
+  - [Assessment Brief](https://github.com/Rhelli/thrive.io-frontend#-the-project-brief)
   - [The Technical Requirements](https://github.com/Rhelli/thrive.io-frontend#-the-technical-requirements)
   - [The App](https://github.com/Rhelli/thrive.io-frontend#the-app)
-  - [Application Architecture](https://github.com/Rhelli/thrive.io-frontend#%EF%B8%8F-application-architecture)
-  - [Tools & Technology Used](https://github.com/Rhelli/thrive.io-frontend#-tools--technology-used)
-  - [Setup & Use](https://github.com/Rhelli/thrive.io-frontend#-setup--use)
-  - [Feature Previews](https://github.com/Rhelli/thrive.io-frontend#%EF%B8%8F-feature-previews)
-  - [Contributions, Issues and Forking](https://github.com/Rhelli/thrive.io-frontend#%EF%B8%8F-contributions-issues-and-forking)
+  - [Design](https://github.com/Rhelli/thrive.io-frontend#%EF%B8%8F-application-architecture)
+  - [Architecture](https://github.com/Rhelli/thrive.io-frontend#-tools--technology-used)
+  - [Redux, State & Data](https://github.com/Rhelli/thrive.io-frontend#-setup--use)
+  - [Setup & Use](https://github.com/Rhelli/thrive.io-frontend#%EF%B8%8F-feature-previews)
+  - [Preview Video](https://github.com/Rhelli/thrive.io-frontend#%EF%B8%8F-contributions-issues-and-forking)
   - [Creator](https://github.com/Rhelli/thrive.io-frontend#-creator)
-  - [Show Your Support!](https://github.com/Rhelli/thrive.io-frontend#-show-your-support))
-  - [Licensing](https://github.com/Rhelli/thrive.io-frontend#%EF%B8%8F-licensing)
 
-## Challenge Brief
+## Assessment Brief
 This is the front-end challenge provided on behalf of [OpenTable](https://www.opentable.com), to be completed in an open ended amount of time in order to relay my front-end programming strengths.
 
 ## Technical Requirements
@@ -258,9 +256,9 @@ There are a number of commands that can be executed on the command line to inter
  - `npm run build` - This will compile the project and output to `./public/webpack`.
  - `npm run test` - This will run all Jest tests for the project.
 
-# Preview Video
+## Preview Video
    <p align="center">
 <a href="screens/preview.gif"><img src="screens/preview.gif" alt="preview video" width="600" height="auto"></a></p>
 
-# Creator
+## Creator
 Rory Hellier -[Github](https://github.com/Rhelli)
