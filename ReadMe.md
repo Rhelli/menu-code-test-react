@@ -25,6 +25,7 @@ The task at hand is to build a web application that performs the following:
  - Sass
  - React (17.0.2)
  - Redux
+ - Jest
 
 **Packages Of Note**
  - Webpack (4.44.2)
@@ -41,46 +42,46 @@ The task at hand is to build a web application that performs the following:
 The file structure of this application follows a ['View-State'](https://www.pluralsight.com/guides/how-to-organize-your-react-+-redux-codebase) split structure in order to fully separate out the redux 'state' logic and react 'view' logic. 
 
 This promotes a cleaner, more compartmentalised structure. Downside is it is difficult to use for larger projects and forces extrapolation of pure logic focuses code into a separate `utils` folder. The image below is an example of a View-State split structure.
-`
-└── src
-    ├── api
-    │   ├── apiHandler.js
-    │   ├── articleApi.js
-    │   ├── categoryApi.js
-    │   └── userApi.js
-    ├── common
-    │   ├── components
-    │   │   └── ArticleComponent.jsx
-    │   └── containers
-    │       └── ArticleContainer.js
-    ├── index.js
-    ├── pages
-    │   ├── CategoryPage
-    │   │   ├── CategoryPageContainer.js
-    │   │   └── components
-    │   │       └── CategoryPageComponent.jsx
-    │   └── HomePage
-    │       ├── components
-    │       │   ├── ArticleListComponent.jsx
-    │       │   ├── CategoryComponent.jsx
-    │       │   └── HomePageComponent.jsx
-    │       └── HomePageContainer.js
-    ├── routes.js
-    ├── state
-    │   ├── article
-    │   │   ├── articleActions.js
-    │   │   └── articleReducer.js
-    │   ├── category
-    │   │   ├── categoryActions.js
-    │   │   └── categoryReducer.js
-    │   ├── middleware.js
-    │   ├── store.js
-    │   └── user
-    │       ├── userActions.js
-    │       └── userReducer.js
-    └── utils
-        └── authUtils.js
-`
+    
+    └── src
+        ├── api
+        │   ├── apiHandler.js
+        │   ├── articleApi.js
+        │   ├── categoryApi.js
+        │   └── userApi.js
+        ├── common
+        │   ├── components
+        │   │   └── ArticleComponent.jsx
+        │   └── containers
+        │       └── ArticleContainer.js
+        ├── index.js
+        ├── pages
+        │   ├── CategoryPage
+        │   │   ├── CategoryPageContainer.js
+        │   │   └── components
+        │   │       └── CategoryPageComponent.jsx
+        │   └── HomePage
+        │       ├── components
+        │       │   ├── ArticleListComponent.jsx
+        │       │   ├── CategoryComponent.jsx
+        │       │   └── HomePageComponent.jsx
+        │       └── HomePageContainer.js
+        ├── routes.js
+        ├── state
+        │   ├── article
+        │   │   ├── articleActions.js
+        │   │   └── articleReducer.js
+        │   ├── category
+        │   │   ├── categoryActions.js
+        │   │   └── categoryReducer.js
+        │   ├── middleware.js
+        │   ├── store.js
+        │   └── user
+        │       ├── userActions.js
+        │       └── userReducer.js
+        └── utils
+            └── authUtils.js
+    
 
 ## Architecture
 Following the file structure laid out above, the application is structured through three main containers, which act as the key pages or points throughout the user journey:
@@ -170,6 +171,77 @@ As the users enter their booking information and complete their orders and head 
         }
       }
 
-In taking advantage of the way that the orders are structures (i.e. as objects), we're able to fulfill the restriction that a user may only have one item per course. When we update the state, we use bracket notation to point to the relevant course, and overwrite it with a new chosen meal. This prevents having to perform any other checks for more than one meal per course being selected.
+In taking advantage of the way that the orders are structures (i.e. as objects), we're able to fulfill the restriction that a user may only have one item per course. When we update the state, we use bracket notation to point to the relevant course, and overwrite it with a new chosen meal. This prevents having to perform any other checks for more than one meal per course being selected. The user's assigned color is also stored in the order information, as it is relevant to the menu container where it is used.
 
-The user's assigned color is also stored in the order information, as it is relevant to the menu container where it is used.
+The reducers corresponding actions include:
+ - Create New Booking - Initialised once the user completes the Welcome screen, creating the booking object
+ - Create New Order - Initialised upon reaching the menu screen to create each users `order` object
+ - Add To Order - Initialised when the user selects a food item from the menu
+ - Remove From Order - Initialised when the user removes an order from the Order Card
+ - Reset Order - Initialised when the user navigated back to the Welcome screen. Triggering this wipes the orders and prevents proliferation of users if the user returns to the Welcome screen, creates a new user and then proceeds back to the Menu screen.
+
+### The Stock Reducer
+The stock reducer is a very simple reducer that ties in closely with the order reducer in order to either decrement of increment the stock of the chosen food upon selection. The initial state for the stock reducer is created through a utility function called `menuGen` (found in `./src/utils/menuUtils.js`). 
+
+The function creates an object structure similar to the JSON menu data, but it maps a given stock number to each food item. One chosen food item, denoted by a string input into the `menuGen`'s last parameter, sets a low-stock item at 1. For this project, that item is the cheesecake, however it can be readily modified my altering the stock reducers set initial state in `stockReducer.js`. The initial state for the structure is as following:
+
+    stockStore: {
+      starters: { 
+        Soup: 30, 
+        Pâté: 30, 
+        Bruschetta: 30, 
+        Prawn cocktail': 30 
+      },
+      mains: {
+        Steak: 30,
+        Meatballs: 30,
+        Salmon fillet: 30,
+        Vegetarian lasagna': 30
+      },
+      desserts: { 
+        Sticky toffee: 30, 
+        Tiramisu: 30, 
+        Cheesecake: 1, 
+        Ice cream: 30 
+      }
+    }
+
+The stock reducers corresponding actions include:
+ - Increase stock - Triggered when a user removes an order from the Order Card
+ - Decrease stock - Triggered when a user adds an order to the Order Card
+ - Reset Stock - Triggered when the user returns to the Welcome screen to prevent stock bugs.
+
+### Waiter Reducer
+The waiter reducer is another simple reducer that controls the flow of messages the appear on the menu screen. The data structure is a simple one dimensional array, where messages produced by waiter util functions (found in `./src/utils/waiterUtils`) are dispatched depending on checks on orders that occur when a user is either submitting a new food order, or attempting to proceed to the Confirmation screen. An example of what the state for this reducer looks like is as follows:
+
+    messageList: [
+      "Good Afternoon, my name is Pierre, and I'll be your waiter this afternoon.",
+      "To order, select your name at the top of the menu and make your selections. The first guest's name is selected automatically.",
+      "*snorts* I urge you to choose a better suited main course to complement your starters. Unless you're a pescatarian or a philanderer, I'd suggest selecting something else.","Guest 2, you have not completed your order. Please ensure you have a main course and a starter or dessert."
+    ]
+
+The waiter reducers corresponding actions are as follows:
+ - Trigger Waiter Message - Dispatches a generated message to the waiterStore
+ - Remove Waiter Message - This is an unused action, however it is fully plumbed in and I have left it there as a readily available solution if deletion of messages is wanted in the future.
+
+## Setup and Use
+[Head here]() if you would like to see the site live. For use on your local machine, keep reading.
+
+### Setup
+In order to run this project locally, you must first ensure your machine is correctly set up.
+  1. Ensure you have Node.js installed on your machine.
+  2. Download this repository. This can be done as a typical file download from [here]() or ou can clone this repository to a given directory on your machine from the link at the top of the page.
+  3. Once downloaded, navigate to the root of the downloaded repository in a terminal.
+  4. Install! - Enter the command `npm install --legacy-peer-deps`. Legacy peer dependencies are required for this project to install due to the use of the [Recompose](https://github.com/acdlite/recompose) npm package which is used to prevent unnecessary re-renders/animation re-triggers in the WaiterCardComponent.
+
+The following steps should correctly set up and install the project locally. Once the last step has completed, you're free to start playing around!
+
+### Use
+There are a number of commands that can be executed on the command line to interact with the project:
+ - `npm run start` - This will start the project in a local server, accessible at `http://localhost:8080/`.
+ - `npm run build` - This will compile the project and output to `./public/webpack`.
+ - `npm run test` - This will run all Jest tests for the project.
+
+# Preview Video
+   <p align="center">
+<a href="screens/menu.png"><img src="screens/menu.png" alt="menu page" width="600" height="auto"></a></p>
