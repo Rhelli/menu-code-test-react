@@ -1,15 +1,15 @@
 # OpenTable Front-End Coding Challenge
 
 ## Table of Contents
-  - [Assessment Brief](https://github.com/Rhelli/thrive.io-frontend#-the-project-brief)
-  - [The Technical Requirements](https://github.com/Rhelli/thrive.io-frontend#-the-technical-requirements)
-  - [The App](https://github.com/Rhelli/thrive.io-frontend#the-app)
-  - [Design](https://github.com/Rhelli/thrive.io-frontend#%EF%B8%8F-application-architecture)
-  - [Architecture](https://github.com/Rhelli/thrive.io-frontend#-tools--technology-used)
-  - [Redux, State & Data](https://github.com/Rhelli/thrive.io-frontend#-setup--use)
-  - [Setup & Use](https://github.com/Rhelli/thrive.io-frontend#%EF%B8%8F-feature-previews)
-  - [Preview Video](https://github.com/Rhelli/thrive.io-frontend#%EF%B8%8F-contributions-issues-and-forking)
-  - [Creator](https://github.com/Rhelli/thrive.io-frontend#-creator)
+  - [Assessment Brief](https://github.com/Rhelli/menu-code-test-react/tree/release/1.0.0#assessment-brief)
+  - [The Technical Requirements](https://github.com/Rhelli/menu-code-test-react/tree/release/1.0.0#technical-requirements)
+  - [The App](https://github.com/Rhelli/menu-code-test-react/tree/release/1.0.0#the-app)
+  - [Design](https://github.com/Rhelli/menu-code-test-react/tree/release/1.0.0#design)
+  - [Architecture](https://github.com/Rhelli/menu-code-test-react/tree/release/1.0.0#architecture)
+  - [Redux, State & Data](https://github.com/Rhelli/menu-code-test-react/tree/release/1.0.0#redux-state--data)
+  - [Setup & Use](https://github.com/Rhelli/menu-code-test-react/tree/release/1.0.0#setup-and-use)
+  - [Preview Video](https://github.com/Rhelli/menu-code-test-react/tree/release/1.0.0#preview-video)
+  - [Creator](https://github.com/Rhelli/menu-code-test-react/tree/release/1.0.0#creator)
 
 ## Assessment Brief
 This is the front-end challenge provided on behalf of [OpenTable](https://www.opentable.com), to be completed in an open ended amount of time in order to relay my front-end programming strengths.
@@ -258,7 +258,7 @@ There are a number of commands that can be executed on the command line to inter
 
 ## Preview Video
    <p align="center">
-<a href="screens/preview.gif"><img src="screens/preview.gif" alt="preview video" width="600" height="auto"></a></p>
+<a href="screens/preview.gif"><img src="screens/preview.gif" alt="preview video" width="900" height="auto"></a></p>
 
 ## Creator
 Rory Hellier -[Github](https://github.com/Rhelli)
