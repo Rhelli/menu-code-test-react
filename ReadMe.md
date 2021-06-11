@@ -1,5 +1,18 @@
 # OpenTable Front-End Coding Challenge
 
+## Table of Contents
+  - [The Project Brief](https://github.com/Rhelli/thrive.io-frontend#-the-project-brief)
+  - [The Technical Requirements](https://github.com/Rhelli/thrive.io-frontend#-the-technical-requirements)
+  - [The App](https://github.com/Rhelli/thrive.io-frontend#the-app)
+  - [Application Architecture](https://github.com/Rhelli/thrive.io-frontend#%EF%B8%8F-application-architecture)
+  - [Tools & Technology Used](https://github.com/Rhelli/thrive.io-frontend#-tools--technology-used)
+  - [Setup & Use](https://github.com/Rhelli/thrive.io-frontend#-setup--use)
+  - [Feature Previews](https://github.com/Rhelli/thrive.io-frontend#%EF%B8%8F-feature-previews)
+  - [Contributions, Issues and Forking](https://github.com/Rhelli/thrive.io-frontend#%EF%B8%8F-contributions-issues-and-forking)
+  - [Creator](https://github.com/Rhelli/thrive.io-frontend#-creator)
+  - [Show Your Support!](https://github.com/Rhelli/thrive.io-frontend#-show-your-support))
+  - [Licensing](https://github.com/Rhelli/thrive.io-frontend#%EF%B8%8F-licensing)
+
 ## Challenge Brief
 This is the front-end challenge provided on behalf of [OpenTable](https://www.opentable.com), to be completed in an open ended amount of time in order to relay my front-end programming strengths.
 
@@ -91,11 +104,11 @@ An additional important caveat here is that the project is not responsive. Given
 ## Architecture
 Following the file structure laid out above, the application is structured through three main containers, which act as the key pages or points throughout the user journey:
 
- 1. Welcome - This is the first page, where the user enters their booking time request, and optionally, their names so that they may organise the food they order
+ 1. **Welcome** - This is the first page, where the user enters their booking time request, and optionally, their names so that they may organise the food they order
  
- 2. Menu - This is the center of the experience, where the menu is displayed with selectable options and selected options are added to the 'Order Card', with pricing, totals and selected food being displayed.
+ 2. **Menu** - This is the center of the experience, where the menu is displayed with selectable options and selected options are added to the 'Order Card', with pricing, totals and selected food being displayed.
 
- 3. Confirmation - This is the last page, where the users booking details and food selection is presented back to them one last time before the booking/order is confirmed.
+ 3. **Confirmation** - This is the last page, where the users booking details and food selection is presented back to them one last time before the booking/order is confirmed.
 
 
  ### Welcome Container
@@ -179,11 +192,11 @@ As the users enter their booking information and complete their orders and head 
 In taking advantage of the way that the orders are structures (i.e. as objects), we're able to fulfill the restriction that a user may only have one item per course. When we update the state, we use bracket notation to point to the relevant course, and overwrite it with a new chosen meal. This prevents having to perform any other checks for more than one meal per course being selected. The user's assigned color is also stored in the order information, as it is relevant to the menu container where it is used.
 
 The reducers corresponding actions include:
- - Create New Booking - Initialised once the user completes the Welcome screen, creating the booking object
- - Create New Order - Initialised upon reaching the menu screen to create each users `order` object
- - Add To Order - Initialised when the user selects a food item from the menu
- - Remove From Order - Initialised when the user removes an order from the Order Card
- - Reset Order - Initialised when the user navigated back to the Welcome screen. Triggering this wipes the orders and prevents proliferation of users if the user returns to the Welcome screen, creates a new user and then proceeds back to the Menu screen.
+ - **Create New Booking** - Initialised once the user completes the Welcome screen, creating the booking object
+ - **Create New Order** - Initialised upon reaching the menu screen to create each users `order` object
+ - **Add To Order** - Initialised when the user selects a food item from the menu
+ - **Remove From Order** - Initialised when the user removes an order from the Order Card
+ - **Reset Order** - Initialised when the user navigated back to the Welcome screen. Triggering this wipes the orders and prevents proliferation of users if the user returns to the Welcome screen, creates a new user and then proceeds back to the Menu screen.
 
 ### The Stock Reducer
 The stock reducer is a very simple reducer that ties in closely with the order reducer in order to either decrement of increment the stock of the chosen food upon selection. The initial state for the stock reducer is created through a utility function called `menuGen` (found in `./src/utils/menuUtils.js`). 
@@ -212,9 +225,9 @@ The function creates an object structure similar to the JSON menu data, but it m
     }
 
 The stock reducers corresponding actions include:
- - Increase stock - Triggered when a user removes an order from the Order Card
- - Decrease stock - Triggered when a user adds an order to the Order Card
- - Reset Stock - Triggered when the user returns to the Welcome screen to prevent stock bugs.
+ - **Increase stock** - Triggered when a user removes an order from the Order Card
+ - **Decrease stock** - Triggered when a user adds an order to the Order Card
+ - **Reset Stock** - Triggered when the user returns to the Welcome screen to prevent stock bugs.
 
 ### Waiter Reducer
 The waiter reducer is another simple reducer that controls the flow of messages the appear on the menu screen. The data structure is a simple one dimensional array, where messages produced by waiter util functions (found in `./src/utils/waiterUtils`) are dispatched depending on checks on orders that occur when a user is either submitting a new food order, or attempting to proceed to the Confirmation screen. An example of what the state for this reducer looks like is as follows:
@@ -226,12 +239,10 @@ The waiter reducer is another simple reducer that controls the flow of messages 
     ]
 
 The waiter reducers corresponding actions are as follows:
- - Trigger Waiter Message - Dispatches a generated message to the waiterStore
- - Remove Waiter Message - This is an unused action, however it is fully plumbed in and I have left it there as a readily available solution if deletion of messages is wanted in the future.
+ - **Trigger Waiter Message** - Dispatches a generated message to the waiterStore
+ - **Remove Waiter Message** - This is an unused action, however it is fully plumbed in and I have left it there as a readily available solution if deletion of messages is wanted in the future.
 
 ## Setup and Use
-[Head here]() if you would like to see the site live. For use on your local machine, keep reading.
-
 ### Setup
 In order to run this project locally, you must first ensure your machine is correctly set up.
   1. Ensure you have Node.js installed on your machine.
