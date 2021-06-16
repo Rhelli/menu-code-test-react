@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The appearance and functionality of the NextCardComponent Matches the previous snapshot 1`] = `
+<div
+  className="nextCardContainer"
+>
+  <button
+    className="previousButton"
+    onClick={[Function]}
+  >
+    Previous
+  </button>
+  <button
+    className="nextButton"
+    onClick={[MockFunction]}
+  >
+    Next
+  </button>
+</div>
+`;

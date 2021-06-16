@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The appearance and functionality of the MenuNavComponent Matches the previous snapshot taken 1`] = `
+<header
+  className="menuNavContainer"
+>
+  <div
+    className="menuTitle"
+  >
+    <h1>
+      Menu
+    </h1>
+  </div>
+  <div
+    className="menuNavButtons"
+  >
+    <button
+      className="selected"
+      id={0}
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#d3445d",
+        }
+      }
+    >
+      Sam
+    </button>
+    <button
+      className="unselected"
+      id={1}
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#404040",
+        }
+      }
+    >
+      Frodo
+    </button>
+  </div>
+</header>
+`;

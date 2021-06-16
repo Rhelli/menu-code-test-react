@@ -1,0 +1,41 @@
+.description,
+.descriptionFull {
+  width: 100%;
+
+  p {
+    margin-top: 20px;
+    width: 100%;
+    line-height: 20px;
+    color: #303030;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  button {
+    outline: none;
+    border: none;
+    font-size: 12px;
+    color: #da3743;
+    background-color: transparent;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+.description {
+  p {
+    height: 30px;
+  }
+}
+
+.descriptionFull {
+  p {
+    overflow: unset;
+    white-space: normal;
+    text-overflow: unset;
+  }
+}

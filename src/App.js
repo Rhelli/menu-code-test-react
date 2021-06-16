@@ -1,11 +1,32 @@
 import React from 'react';
-import { render } from 'react-dom';
-import styles from './App.module.scss';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import throttle from 'lodash.throttle';
+import Routes from './routes';
+import setupStore from './state/store';
+import { saveState } from './utils/storageUtils';
+import './App.scss';
 
-class App extends React.Component {
-  render() {
-    return <h1 className={styles.menuTest}>Menu Test</h1>;
-  }
-}
+const initializeStore = () => {
+  const newStore = setupStore();
+  newStore.subscribe(throttle(() => {
+    saveState({
+      orderStore: newStore.getState().orderStore,
+      stockStore: newStore.getState().stockStore
+    });
+  }, 1000));
+  return newStore;
+};
 
-render(<App />, document.getElementById('root'));
+const store = initializeStore();
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <div className="appContainer">
+        <Routes />
+      </div>
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);

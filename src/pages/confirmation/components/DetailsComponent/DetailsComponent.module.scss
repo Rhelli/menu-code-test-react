@@ -1,0 +1,86 @@
+.detailsContainer {
+  display: flex;
+  width: 100%;
+  flex-flow: column nowrap;
+
+  .bookingDetails {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    margin-bottom: 10px;
+
+    div {
+      flex-grow: 1;
+      height: auto;
+      padding: 10px 0;
+
+      h5 {
+        font-size: 16px;
+      }
+
+      p {
+        padding: 10px 0;
+        border-bottom: 1px solid #d8d9db;
+      }
+    }
+  }
+
+  .orderList {
+    .guestOrder {
+      display: flex;
+      flex-flow: column nowrap;
+      width: 100%;
+      padding: 10px 0;
+
+      h5 {
+        margin-bottom: 5px;
+        font-size: 16px;
+      }
+
+      .orderItem {
+        display: flex;
+        flex-flow: row nowrap;
+        padding: 4px 0;
+
+        p {
+          font-size: 14px;
+        }
+
+        .price {
+          margin-left: auto;
+        }
+      }
+    }
+
+    .individualTotal {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      width: 100%;
+      padding: 6px 0;
+      border-top: 1px solid #da3743;
+      border-bottom: 1px solid #da3743;
+      margin-top: 10px;
+
+      .total {
+        margin-left: auto;
+      }
+    }
+
+    .grandTotalContainer {
+      display: flex;
+      flex-flow: row nowrap;
+      width: 100%;
+      padding: 20px 0;
+      border-bottom: 1px solid #d8d9db;
+
+      p {
+        font-size: 20px;
+      }
+
+      .grandPrice {
+        margin-left: auto;
+      }
+    }
+  }
+}

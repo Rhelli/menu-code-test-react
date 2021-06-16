@@ -1,29 +1,35 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const htmlPlugin = new HtmlWebPackPlugin({
+  title: 'Production',
   template: './public/index.html',
   filename: './index.html'
 });
 
+const cleanWebpackPlugin = new CleanWebpackPlugin();
+
 module.exports = {
-  entry: ['./src/App.js'],
+  entry: {
+    app: './src/App.js'
+  },
   module: {
     rules: [
       {
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env', '@babel/preset-react'].map(require.resolve)
+              presets: ['@babel/preset-env', '@babel/preset-react']
             }
           }
         ]
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(s[ac]ss$|css)$/,
         use: [
           'style-loader',
           'css-loader',
@@ -45,8 +51,9 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, '/public/webpack/'),
-    filename: 'bundle.js'
+    path: path.join(__dirname, '/public/webpack'),
+    filename: 'bundle.js',
+    publicPath: ''
   },
-  plugins: [htmlPlugin]
+  plugins: [htmlPlugin, cleanWebpackPlugin]
 };
